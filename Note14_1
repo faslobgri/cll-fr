@@ -1,0 +1,60 @@
+Notes sur les connecteurs logiques
+Sources: https://fr.wikipedia.org/wiki/Connecteur_logique
+
+Petite aide pour comprendre la signification des 4 symboles TTTT, TTTF, TTFT,... (Section 14.1 CCL)
+
+Schéma:
+1ière étape: 
+============
+Etablir la correspondance entre la séquence ABCD et le tableau formé de cette façon:
+ABCD            ->     +---+---+
+                       + D + C +
+                       +---+---+
+                       + B + A +
+                       +--------
+2ième étape:
+===========
+Retrouver la table de vérité par exemple en utilisant les tables indiquées à l'adresse https://fr.wikipedia.org/wiki/Connecteur_logique, 
+ainsi que le connecteur logique associé.
+
+3ième étape:
+============
+Etablir la correspondance entre ABCD et le connecteur logique.
+
+TTTT            ->     +---+---+ ->  T   Tautologie
+                       + T + T +
+                       +---+---+
+                       + T + T +
+                       +--------                    
+TTTF            ->     +---+---+ -> P v Q Disjonction
+                       + F + T +
+                       +---+---+
+                       + T + T +
+                       +--------
+TTFT            ->     +---+---+ -> P <- Q Implication réciproque
+                       + T + F +
+                       +---+---+
+                       + T + T +
+                       +--------
+TTFF            ->     +---+---+ -> P Proposition P
+                       + F + F +
+                       +---+---+
+                       + T + T +
+                       +--------
+TFTT            ->     +---+---+ -> P -> Q Implication
+                       + T + T +
+                       +---+---+
+                       + F + T +
+                       +--------
+TFTF            ->     +---+---+ ->  Q  Proposition Q
+                       + F + T +
+                       +---+---+
+                       + F + T +
+                       +--------                    
+TFFT            ->     +---+---+ -> P <-> Q Equivalence
+                       + T + F +
+                       +---+---+
+                       + F + T +
+                       +--------
+
+etc
