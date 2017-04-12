@@ -95,20 +95,19 @@ Exemple 14.2
 
 Mary est allée à la fenêtre et...
 
-Où le dernier mot pourrait être suivi par "la porte", une expression nominale, ou par "vu les chevaux", une phrase avec le sujet omis, ou par "John est allé à la porte", une phrase complète, ou par une autre variété constructions grammaticales anglaises. Lojban ne peut pas tolérer un tel manque de grammaire.
+où le dernier mot pourrait être suivi par "la porte", une expression nominale, ou par "vu les chevaux", une phrase avec le sujet omis, ou par "John est allé à la porte", une phrase complète, ou par une autre variété constructions grammaticales anglaises. Lojban ne peut pas tolérer un tel manque de grammaire.
 
-	Au lieu de cela, il existe un total de cinq sémantiques différentes utilisées pour la connexion logique: A, GA, GIhA, GuhA et JA. Chacun d'entre eux comprend quatre cmavo, l'un basé sur chacune des quatre voyelles, qui est toujours la dernière voyelle dans le cmavo.  En selma'o A, la voyelle est l'ensemble du cmavo.
+	Au lieu de cela, il existe un total de cinq sémantiques différentes utilisées pour la connexion logique: A, GA, GIhA, GuhA et JA. Chacun d'entre eux comprend quatre cmavo, l'un basé sur chacune des quatre voyelles, qui est toujours la dernière voyelle dans le cmavo. Avec le selma'o A, la voyelle est l'ensemble du cmavo.
 	
-	Ainsi, en selma'o A, le cmavo pour la fonction A est a. (Ne confondez pas A, qui est un selma'o, avec A, qui est une fonction de vérité, ou a, qui est un cmavo.) De même, le cmavo pour E dans selma'o GIhA est gi'e, et le cmavo pour U en selma'o GA est gu. Cette régularité systématique rend le cmavo plus facile à apprendre.
+	Ainsi, avec le selma'o A, le cmavo pour la fonction A est a. (Ne confondez pas A, qui est un selma'o, avec A, qui est une fonction de vérité, ou a, qui est un cmavo.) De même, le cmavo pour E dans selma'o GIhA est gi'e, et le cmavo pour U en selma'o GA est gu. Cette régularité systématique rend le cmavo plus facile à apprendre.
 
-	Évidemment, quatre cmavo ne suffisent pas à exprimer les 14 fonctions de vérité expliquées à la section 14.1 (p.317). Par conséquent, le cmavo composé doit être utilisé. Ces composés cmavo suivent un schéma systématique: Chacun a un cmavo de la connexion logique cinq selma'o à son coeur, et peut également contenir un ou plus de cmavo se, na, ou nai auxiliaire. Quels auxiliaires sont utilisés avec quelle connexion logique cmavo, et avec quelle grammaire et sens, sera expliqué dans les sections suivantes. L'utilisation de chacun de ces cmavos auxiliaires se rapporte à ses autres utilisations dans d'autres parties de la grammaire de Lojban.
+	Évidemment, quatre cmavo ne suffisent pas à exprimer les 14 fonctions de vérité expliquées à la section 14.1. Par conséquent, un cmavo composé doit être utilisé. Ces composés cmavo suivent un schéma systématique: chacun a un cmavo de la connexion logique cinq selma'o à son coeur, et peut également contenir un ou plus de cmavo se, na, ou nai auxiliaire. Quels auxiliaires sont utilisés avec quelle connexion logique cmavo, et avec quelle grammaire et sens, sera expliqué dans les sections suivantes. L'utilisation de chacun de ces cmavos auxiliaires se rapporte à ses autres utilisations dans d'autres parties de la grammaire de Lojban.
 
-	Pour plus de commodité, chacun des types de cmavo composé utilisé pour la connexion logique est désigné par un nom Lojban. Le nom est dérivé en modifiant le "-A" final du nom selma'o par "-ek"; les raisons de l'utilisation de «-ek» sont enterrées profondément dans l'histoire du projet Loglan. Ainsi, cmavo composé basé sur selma'o A sont connus sous le nom de eks, et ceux basés sur selma'o JA sont connus sous le nom de jeks. (Lors de l'écriture En anglais, il est conventionnel d'utiliser "eks" comme le pluriel de "ek".) Lorsque le terme "connectif logique" est
-utilisé dans ce chapitre, il se réfère à un ou plusieurs de ces types de composés cmavo.
+	Pour plus de commodité, chacun des types de cmavo composé utilisé pour la connexion logique est désigné par un nom Lojban. Le nom est dérivé en modifiant le "-A" final du nom selma'o par "-ek"; les raisons de l'utilisation de «-ek» sont enterrées profondément dans l'histoire du projet Loglan. Ainsi, cmavo composé basé sur selma'o A sont connus sous le nom de eks, et ceux basés sur selma'o JA sont connus sous le nom de jeks. (Lors de l'écriture en fraçaiss, il est conventionnel d'utiliser "eks" comme le pluriel de "ek".) Lorsque le terme "connecteur logique" est utilisé dans ce chapitre, il se réfère à un ou plusieurs de ces types de composés cmavo.
 
 	Pourquoi le titre de cette section se réfère-t-il à «six types» lorsqu'il n'y a que cinq selma'o? Un jek peut être précédé par i, le cmavo Lojban habituel pour connecter deux phrases. Le composé produit par i suivi par un jek est connu comme un ijek. Il est utile de penser à ijeks comme un sixième type de logique logique, parallèlement à eks, jeks, geks, giheks et guheks.
 
-	Il existe également des giks, joiks, ijoiks et joigiks, qui ne sont pas des connecteurs logiques, mais d'autres types de cmavo composé qui sera introduit plus tard.
+	Il existe également des giks, joiks, ijoiks et joigiks, qui ne sont pas des connecteurs logiques, mais d'autres types de cmavo composé qui seront introduits plus tard.
 
 14.4 Connexion logique de bridi
 
