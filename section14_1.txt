@@ -1,0 +1,52 @@
+14.1 Connecteurs logiques logique et tables de vérité
+
+	Lojban est une langue logique: le nom de la langue elle-même signifie "langage logique". Les élements de la logique classique (il existe d'autres logiques, qui ne sont pas abordées dans ce livre) comprennent les notions d'"énoncé" (parfois appelée "phrase", «déclaration» ou «proposition»), qui affirme une vérité ou un mensonge et un petit ensemble de «fonctions de vérité», qui combinent deux énoncés pour créer un nouvel énoncé. Les fonctions de la vérité ont la caractéristique particulière que la valeur de la vérité (c'est-à-dire la vérité ou le mensonge) des résultats dépend uniquement de la valeur de vérité des énoncés qui la composent. Par exemple,
+
+Exemple 14.1
+Jean est un homme ou Jeanne est une femme.
+
+est vrai si "Jean est un homme" est vrai, ou si "Jeanne est une femme" est vrai. Si nous savons que Jean est un homme, et que Jeanne est une femme, alors nous savons que "Jean est un homme ou Jeanne est une femme" est vrai, pourvu que nous connaissions la signification de "ou". Les phrases composantes sont "Jean est un homme" et "Jeanne est une femme".
+
+	Nous allons utiliser l'expression «nier une phrase» pour signifier changer sa valeur de vérité. Une phrase, en français, peut toujours être annulé par le préfixe "Il n'est pas vrai que...", ou plus idiomatiquement en insérant "ne...pas" à la bonne place, généralement entre le verbe. "Jeanne n'est pas une femme" est la négation de "Jeanne est une femme", et vice versa. Plus rarement, on peut également nier une phrase en la suivant avec l'exclamation "Non !".
+
+	Les mots comme «ou» sont appelés «connecteurs logiques», et Lojban en a plusieurs, comme on peut s'y attendre pour un langage "logique". Ce chapitre concerne principalement l'explication des formes et des utilisations des connecteurs logiques en Lojban. Il existe un certain nombre d'autres connecteurs logiques en français tels que "et", "et / ou", "si", "Seulement si", "que ce soit ou non", et d'autres (https://fr.wikipedia.org/wiki/Connecteur_logique#Linguistique); cependant, chacun de ces mots français ne correspond pas nécessairement à un connecteur logique. Ce point sera précisé dans des cas particuliers au besoin. Ces autres connecteurs logiques seront construits à partir des connecteurs logiques élémentaires.
+
+	Les connecteurs Lojban forment un système (comme le suggère le titre de ce chapitre), régulier et prévisible, alors que les connecteurs de langage naturel sont plutôt moins systématiques et donc moins prévisibles.
+
+	Il existe 16 différentes fonctions de vérité possibles (https://fr.wikipedia.org/wiki/Connecteur_logique#Logique_formelle). Une table de vérité est un dispositif graphique pour spécifier un fonction de la vérité, en précisant quelle est la valeur de la fonction de vérité pour toutes les valeurs possibles de la phrases composantes. Voici une table de vérité pour "ou":
+
+premier deuxième résultat
+Vrai Vrai Faux
+...
+
+	Ce tableau signifie que si le premier énoncé est vrai et que le second énoncé est vrai, alors le résultat de la fonction de vérité est également vrai. Il en va de même pour toute autre combinaison possible de valeurs de vérité, sauf celle où le premier et le deuxième énoncés sont faux, auquel cas la valeur de vérité du résultat est également fausse.
+
+	Supposons que "Jean est un homme" est vrai (et "Jean n'est pas un homme" est faux), et que "Jeanne est une femme" est faux (et "Jeanne n'est pas une femme" est vrai). Alors la table de la vérité nous dit que
+
+"Jean est un homme, ou Jeanne n'est pas une femme" (vrai vrai) est vrai
+"Jean est un homme, ou Jeanne est une femme" (vrai, faux) est vrai
+"Jean n'est pas un homme, ou Jeanne n'est pas une femme" (faux, vrai) est vrai
+"Jean n'est pas un homme, ou Jeanne est une femme" (faux, faux) est faux
+
+	Notez que le type de "ou" utilisé dans cet exemple peut également être traduit, formmellement en français, en "et / ou". Il existe une table de vérité différente pour le genre de "ou" qui signifie "soit ... ou ... mais pas les deux".
+
+	Pour économiser de l'espace, nous allons écrire des tableaux de vérité dans un format plus court désormais. Laissez les lettres V et F se tenir pour vrai et faux. Les lignes seront toujours données dans l'ordre indiqué ci-dessus: VV, VF, FV, FF pour les deux phrases. Ensuite, il suffit de donner les quatre lettres de la colonne des résultats, qui peut être VVVVF écrit, comme on peut le voir en lisant la troisième colonne du tableau ci-dessus. Donc VVVVF est la table de vérité abrégée pour la "ou" fonction de vérité. Voici les 16 fonctions de vérité possibles, avec une traduction française de ce que signifie affirmer que chaque fonction est, en fait, vraie ("première" se réfère à au premier énoncé et "seconde" au deuxième énoncé):
+
+VVVV (toujours vrai)
+Le premier VVVF est vrai et / ou le second est vrai.
+VVFV premier est vrai si le second est vrai.
+VVFF est d'abord vrai si le second est vrai.
+VFVV en premier n'est vrai que si le second est vrai.
+VFVF, que le premier soit ou non vrai, le second est vrai.
+VFFV en premier est vrai si et seulement si la seconde est vraie.
+VFFF est d'abord vrai et le second est vrai
+FVVV première et seconde ne sont pas les deux vraies.
+FVVF premier ou deuxième est vrai, mais pas les deux.
+FVFV, que le premier soit ou non vrai, le second est faux.
+FVFF est d'abord vrai, mais le second est faux.
+FFVV est d'abord faux, que le second soit ou non vrai.
+FFVF est d'abord faux, mais le second est vrai.
+FFFV ni premier ni second n'est vrai.
+FFFF (toujours faux)
+
+Les sceptiques peuvent élaborer eux-mêmes les tableaux détaillés de la vérité.
