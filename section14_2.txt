@@ -1,0 +1,33 @@
+14.2 Les quatre voyelles de base
+
+Lojban considère quatre des 16 fonctions de vérité de la section précédente comme fondamentales et leur attribue les quatre voyelles A, E,O et U. Ces lettres ne représentent pas le cmavo réel ou le selma'o, mais plutôt une voyelle composant le cmavo connecteur-logique réellement construit, comme expliqué dans la section suivante. Voici les quatre voyelles, leurs tables de vérité et les équivalents français bruts:
+
+A TTTF ou, et / ou
+E TFFF et
+O TFFT si et seulement si
+U TTFF, que ce soit ... ou rien
+
+Plus précisément:
+A est vrai si un ou les deux énoncéss sont vrais
+E est vrai si les deux énoncés sont vrais, mais pas autrement
+O est vrai si les énoncés sont à la fois les deux vrais ou les deux faux
+U est vrai si le premièr énoncé est vrai, quelle que soit la valeur de vérité du deuxième énoncé
+
+Avec les quatre voyelles ainsi qu'avec la possibilité de nier l'un ou l'autre énoncé et d'échanger les énoncés, comme si leur ordre avait été inversé, nous pouvons créer toutes les 16 fonctions de vérité possibles à l'exception de TTTT et FFFF, qui sont tout à fait inutiles de toute façon. Le tableau suivant illustre comment créer chacun des 14 fonctions de la vérité restante:
+
+TTTF A
+TTFT A avec le deuxième énoncé nié
+TTF U
+TFTT A avec le premier énoncé nié
+TFTF U avec des énoncés échangés
+TFFT O
+TFFF E
+FTTT A avec les deux énoncés niés
+FTTF O avec un premier ou un second énoncé nié (mais pas les deux)
+FTFT U avec des énoncés échangés, puis deux fois niés
+FTFF E avec le deuxième énoncé annulé
+FFTT U avec le première énoncé nié
+FFTF E avec le première énoncé nié
+FFFT E avec les deux énoncés niés
+
+Notez que l'échange des énoncés n'est nécessaire qu'avec U. Les trois autres fonctions fondamentales de la vérité sont commutatives; c'est-à-dire qu'ils signifient la même chose indépendamment de l'ordre des énoncés les composant. Il existe d'autres façons d'obtenir certaines de ces tables de vérité; Il s'agit simplement des méthodes habituellement utilisées.
