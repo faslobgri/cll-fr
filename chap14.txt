@@ -1,0 +1,1611 @@
+14.1 Connexion logique et tables de vérité
+
+	Lojban est une langue logique: le nom de la langue elle-même signifie "langage logique". Les élements de la logique classique (il existe des logiques variantes, qui ne sont pas abordées dans ce livre) comprennent les notions de «phrase» (parfois appelée «déclaration» ou «proposition»), qui affirme une vérité ou le mensonge et un petit ensemble de «fonctions de vérité», qui combinent deux phrases pour créer une nouvelle phrase. Les fonctions de la vérité ont la caractéristique particulière que la valeur de la vérité (c'est-à-dire la vérité ou le mensonge) des résultats dépend uniquement de la valeur de vérité des phrases qui la composent. Par exemple,
+
+Exemple 14.1
+Jean est un homme ou Jeanne est une femme.
+
+est vrai si "Jean est un homme" est vrai, ou si "Jeanne est une femme" est vrai. Si nous savons que Jean est un homme, et que Jeanne est une femme, alors nous savons que "Jean est un homme ou Jeanne est une femme" est vrai, pourvu que nous connaissions la signification de "ou". Les phrases composantes sont "Jean est un homme" et "Jeanne est une femme".
+
+	Nous allons utiliser l'expression «nier une phrase» pour signifier changer sa valeur de vérité. Une phrase, en français, peut toujours être annulé par le préfixe "C'est faux que ...", ou plus idiomatiquement en insérant "ne...pas" à la bonne place, généralement entre le verbe. "Jeanne n'est pas une femme" est la négation de "Jeanne est une femme", et vice versa. Plus rarement, on peut également nier une phrase en la suivant avec l'exclamation "Non !".
+
+	Les mots comme «ou» sont appelés «connecteurs logiques», et Lojban en a plusieurs, comme cela correspond à une logique la langue. Ce chapitre concerne principalement l'explication des formes et des utilisations des connecteur logique de Lojban. Il existe un certain nombre d'autres connecteurs logiques en français tels que "et", "et / ou", "si", "Seulement si", "que ce soit ou non", et d'autres; cependant, chacun de ces mots français ne correspond pas à un connecteur logique. Ce point sera précisé dans des cas particuliers au besoin. L'autre? anglais les significations sont soutenues par différentes constructions conjonctives Lojban.
+
+	Les connecteurs Lojban forment un système (comme le suggère le titre de ce chapitre), régulier et prévisible, alors que les connecteurs de langage naturel sont plutôt moins systématiques et donc moins prévisibles.
+
+	Il existe 16 différentes fonctions de vérité possibles. Une table de vérité est un dispositif graphique pour spécifier un fonction de la vérité, en précisant quelle est la valeur de la fonction de vérité pour toutes les valeurs possibles de la phrases composantes. Voici une table de vérité pour "ou":
+
+premier deuxième résultat
+Vrai Vrai Faux
+...
+
+	Ce tableau signifie que si la première phrase est vraie et que la deuxième phrase est vraie, alors le résultat de la fonction de vérité est également vrai. Il en va de même pour toute autre combinaison possible de valeurs de vérité, sauf celle où la première et la deuxième phrases sont fausses, auquel cas la valeur de vérité du résultat est également fausse.
+
+	Supposons que "Jean est un homme" est vrai (et "Jean n'est pas un homme" est faux), et que "Jeanne est une femme" est faux (et "Jeanne n'est pas une femme" est vrai). Alors la table de la vérité nous dit que
+
+"Jean est un homme, ou Jeanne n'est pas une femme" (vrai vrai) est vrai
+"Jean est un homme, ou Jeanne est une femme" (vrai, faux) est vrai
+"Jean n'est pas un homme, ou Jeanne n'est pas une femme" (faux, vrai) est vrai
+"Jean n'est pas un homme, ou Jeanne est une femme" (faux, faux) est faux
+
+	Notez que le type de "ou" utilisé dans cet exemple peut également être traduit, formmellement en français, en "et / ou". Il existe une table de vérité différente pour le genre de "ou" qui signifie "soit ... ou ... mais pas les deux".
+
+	Pour économiser de l'espace, nous allons écrire des tableaux de vérité dans un format plus court désormais. Laissez les lettres V et F se tenir pour vrai et faux. Les lignes seront toujours données dans l'ordre indiqué ci-dessus: VV, VF, FV, FF pour les deux phrases. Ensuite, il suffit de donner les quatre lettres de la colonne des résultats, qui peut être VVVVF écrit, comme on peut le voir en lisant la troisième colonne du tableau ci-dessus. Donc VVVVF est la table de vérité abrégée pour la "ou" fonction de vérité. Voici les 16 fonctions de vérité possibles, avec une traduction française de ce que signifie affirmer que chaque fonction est, en fait, vraie ("première" se réfère à la première
+phrase et "seconde" à la deuxième phrase):
+
+VVVV (toujours vrai)
+Le premier VVVF est vrai et / ou le second est vrai.
+VVFV premier est vrai si le second est vrai.
+VVFF est d'abord vrai si le second est vrai.
+VFVV en premier n'est vrai que si le second est vrai.
+VFVF, que le premier soit ou non vrai, le second est vrai.
+VFFV en premier est vrai si et seulement si la seconde est vraie.
+VFFF est d'abord vrai et le second est vrai
+FVVV première et seconde ne sont pas les deux vraies.
+FVVF premier ou deuxième est vrai, mais pas les deux.
+FVFV, que le premier soit ou non vrai, le second est faux.
+FVFF est d'abord vrai, mais le second est faux.
+FFVV est d'abord faux, que le second soit ou non vrai.
+FFVF est d'abord faux, mais le second est vrai.
+FFFV ni premier ni second n'est vrai.
+FFFF (toujours faux)
+
+Les sceptiques peuvent élaborer eux-mêmes les tableaux détaillés de la vérité.
+
+14.2 Les quatre voyelles de base
+
+Lojban considère quatre de ces 16 fonctions de vérité comme fondamentales et leur attribue les quatre voyelles A, E,O et U. Ces lettres ne représentent pas le cmavo réel ou le selma'o, mais plutôt une voyelle composante de quel cmavo logique-connectif réel est construit, comme expliqué dans la section suivante. Voici les quatre voyelles, leurs tables de vérité et les équivalents anglais bruts:
+
+Un TTTF ou, et / ou
+E TFFF et
+O TFFT si et seulement si
+U TTFF, que ce soit ou non
+
+Plus précisément:
+A est vrai si une ou les deux phrases sont vraies
+E est vrai si les deux phrases sont vraies, mais pas autrement
+O est vrai si les phrases sont à la fois vraies ou les deux fausses
+U est vrai si la première phrase est vraie, quelle que soit la valeur de vérité de la deuxième phrase
+
+Avec les quatre voyelles, la capacité de nier l'une ou l'autre phrase et la possibilité d'échanger les phrases, comme si leur ordre avait été inversé, nous pouvons créer toutes les 16 fonctions de vérité possibles à l'exception de TTTT et FFFF, qui sont tout à fait inutiles de toute façon. Le tableau suivant illustre comment créer chacun des 14 fonctions de la vérité restante:
+
+TTTF A
+TTFT A avec la deuxième phrase a annulé
+TTF U
+TFTT A avec première phrase a annulé
+TFTF U avec des phrases échangées
+TFFT O
+TFFF E
+FTTT A avec les deux phrases annulées
+FTTF O avec une première ou une seconde négative (pas les deux)
+FTFT U avec des phrases échangées, puis deux fois annulées
+FTFF E avec la deuxième phrase a annulé
+FFTT U avec la première phrase négative
+FFTF E avec la première phrase néant
+FFFT E avec les deux phrases refusées
+
+Notez que l'échange des phrases n'est nécessaire qu'avec U. Les trois autres fonctions fondamentales de la vérité sont commutatives; c'est-à-dire qu'ils signifient la même chose indépendamment de l'ordre des phrases composantes. Il existe d'autres façons d'obtenir certaines de ces tables de vérité; Il s'agit simplement des méthodes habituellement employée
+
+14.3 Les six types de connecteurs logiques
+Afin de rester sans ambiguïté, Lojban ne peut avoir qu'un seul connecteur logique pour chaque vérité fonction. Il existe de nombreux endroits dans la grammaire de la langue où la connexion logique est permise, et chacun doit avoir son ensemble approprié de connectifs. Si le connecteur approprié pour sumti était utilisé pour connectez selbri, l'ambiguïté résulterait.
+
+Considérons la phrase anglaise:
+
+Exemple 14.2
+
+Mary est allée à la fenêtre et...
+
+où le dernier mot pourrait être suivi par "la porte", une expression nominale, ou par "vu les chevaux", une phrase avec le sujet omis, ou par "John est allé à la porte", une phrase complète, ou par une autre variété constructions grammaticales anglaises. Lojban ne peut pas tolérer un tel manque de grammaire.
+
+	Au lieu de cela, il existe un total de cinq sémantiques différentes utilisées pour la connexion logique: A, GA, GIhA, GuhA et JA. Chacun d'entre eux comprend quatre cmavo, l'un basé sur chacune des quatre voyelles, qui est toujours la dernière voyelle dans le cmavo. Avec le selma'o A, la voyelle est l'ensemble du cmavo.
+	
+	Ainsi, avec le selma'o A, le cmavo pour la fonction A est a. (Ne confondez pas A, qui est un selma'o, avec A, qui est une fonction de vérité, ou a, qui est un cmavo.) De même, le cmavo pour E dans selma'o GIhA est gi'e, et le cmavo pour U en selma'o GA est gu. Cette régularité systématique rend le cmavo plus facile à apprendre.
+
+	Évidemment, quatre cmavo ne suffisent pas à exprimer les 14 fonctions de vérité expliquées à la section 14.1. Par conséquent, un cmavo composé doit être utilisé. Ces composés cmavo suivent un schéma systématique: chacun a un cmavo de la connexion logique cinq selma'o à son coeur, et peut également contenir un ou plus de cmavo se, na, ou nai auxiliaire. Quels auxiliaires sont utilisés avec quelle connexion logique cmavo, et avec quelle grammaire et sens, sera expliqué dans les sections suivantes. L'utilisation de chacun de ces cmavos auxiliaires se rapporte à ses autres utilisations dans d'autres parties de la grammaire de Lojban.
+
+	Pour plus de commodité, chacun des types de cmavo composé utilisé pour la connexion logique est désigné par un nom Lojban. Le nom est dérivé en modifiant le "-A" final du nom selma'o par "-ek"; les raisons de l'utilisation de «-ek» sont enterrées profondément dans l'histoire du projet Loglan. Ainsi, cmavo composé basé sur selma'o A sont connus sous le nom de eks, et ceux basés sur selma'o JA sont connus sous le nom de jeks. (Lors de l'écriture en fraçaiss, il est conventionnel d'utiliser "eks" comme le pluriel de "ek".) Lorsque le terme "connecteur logique" est utilisé dans ce chapitre, il se réfère à un ou plusieurs de ces types de composés cmavo.
+
+	Pourquoi le titre de cette section se réfère-t-il à «six types» lorsqu'il n'y a que cinq selma'o? Un jek peut être précédé par i, le cmavo Lojban habituel pour connecter deux phrases. Le composé produit par i suivi par un jek est connu comme un ijek. Il est utile de penser à ijeks comme un sixième type de logique logique, parallèlement à eks, jeks, geks, giheks et guheks.
+
+	Il existe également des giks, joiks, ijoiks et joigiks, qui ne sont pas des connecteurs logiques, mais d'autres types de cmavo composé qui seront introduits plus tard.
+
+14.4 Connexion logique de bridi
+
+Maintenant, nous sommes prêts à exprimer l'exemple 14.1 (page 317) à Lojban! Le type de connectivité logique qui est placé entre deux Lojban bridi pour les connecter logiquement est un ijek:
+
+Exemple 14.3
+La djan. Nanmu .ija la djeimyz. Ninmu
+
+Le nom de John est un homme ou celui-là nommé James is-a-woman.
+
+Nous avons ici deux Lojban bridi, la djan. Nanmu et la djeimyz. Ninmu. Ces bridi sont connecté par .ija, l'ijek pour la fonction de vérité A. La partie i de l'ijek nous dit que nous traitons
+avec des phrases séparées ici. De même, on peut maintenant dire:
+
+Exemple 14.4
+La djan. Nanmu .ije la djeimyz. Ninmu
+Le nom de John est-a-man et celui-là nommé James is-a-woman.
+Exemple 14.5
+
+La djan. Nanmu .ijo la djeimyz. Ninmu
+Le nom de John est-a-man si-et-seulement-si cela-nommé James is-a-woman.
+
+Exemple 14.6
+La djan. Nanmu .iju la djeimyz. Ninmu
+Le nom de John est-un-homme, que ce soit-ou-pas celui-là, nommé James is-a-woman.
+
+	Pour obtenir les autres tableaux de vérité énumérés à la Section 14.2 (page 319), nous devons savoir comment annuler le deux bridi qui représentent les phrases composantes. Nous pourrions les nier directement en insérant na avant le selbri, mais Lojban nous permet également de placer la négation dans le cadre lui-même.
+
+	Pour annuler le premier ou le bridi à gauche, préfixe na au JA cmavo mais après le i. Annuler la seconde ou bridi droit, suffixe -nai au JA cmavo. Dans les deux cas, le mot négatif est placé sur le côté de la connexion qui est la plus proche de la bridi étant annulée.
+
+	Donc, pour exprimer la table de la vérité FTTF, qui requiert O avec l'une des deux bridi niée (pas les deux), on peut dire non plus:
+
+Exemple 14.7
+La djan. Nanmu .inajo la djeimyz. Ninmu
+Le nom de John est-non-un-homme si-et-seulement-si cela-nommé James-a-woman.
+
+Exemple 14.8
+La djan. Nanmu .ijonai la djeimyz. Ninmu
+Le nom de John est-a-man si-et-seulement-si cela-nommé James is-not-a-woman.
+La signification de l'exemple 14.7 (p. 321) et de l'exemple 14.8 (p. 321) est la même que celle de:
+
+Exemple 14.9
+John est un homme ou James est une femme, mais pas les deux.
+Voici un autre exemple:
+
+Exemple 14.10
+La djan. Nanmu .ijanai la djeimyz. Ninmu
+Le nom de John est un homme ou celui-là nommé James is-not-a-woman.
+John est un homme si James est une femme.
+
+	Comment ça va encore? Est-ce que ces deux phrases anglaises dans l'exemple 14.10 (p. 321) sont vraiment équivalentes? En Anglais, non. La fonction de vérité Lojban TTFT peut être ignorée "A si B", mais le "si" n'a pas vraiment c'est son sens anglais. L'exemple 14.10 (page 321) est vrai tant que John est un homme, même si James n'est pas une femme; de même, c'est vrai simplement parce que James n'est pas une femme, quel que soit le genre de John. Ce genre de "if-then" est techniquement connu comme un "matériel conditionnel".
+
+	Puisque James n'est pas une femme (par nos affirmations à la section 14.1 (p. 317)), la phrase anglaise "John est un homme si James est une femme "semble être ni vrai ni faux, puisqu'il suppose quelque chose qui n'est pas vrai. Il s'avère qu'il est plus commode de traiter ce "si" en tant que TTFT, qui, sur l'enquête, signifie que l'exemple 14.10 (page 321) est vrai. L'exemple 14.11 (p. 321), cependant, est tout aussi vrai:
+
+Exemple 14.11
+La djan. Ninmu .ijanai la djeimyz. Ninmu
+C'est ce qu'on appelle John is-a-woman si cela s'appelle James is-a-woman.
+
+Cela peut être considéré comme un principe de cohérence, et peut être paraphrasé comme suit: "Si un faux la déclaration est vraie, tout énoncé en découle. "Toutes les utilisations de l'anglais« si » doivent être considérées comme très avec attention lors de la traduction dans Lojban pour voir s'ils s'adaptent vraiment à ce moule de Lojban. L'exemple 14.12 (p. 321), qui utilise la fonction de vérité TFTT, est soumis aux mêmes règles: l'énoncé Brillance de TFTT comme "seulement si" fonctionne naturellement uniquement lorsque le bridi droit est faux; Si c'est vrai, le gauche Bridi peut être vrai ou faux. La dernière brillance de l'exemple 14.12 (p. 321) illustre l'utilisation de "si ... alors "comme un substitut plus naturel pour" seulement si ".
+
+Exemple 14.12
+La djan. Nanmu .inaja la djeimyz. Ninmu
+Le nom de John est-non-un-homme ou celui-là nommé James is-a-woman.
+John n'est un homme que si James est une femme.
+Si John est un homme, alors James est une femme.
+
+L'exemple suivant illustre l'utilisation de se, en effet, échange les deux phrases. Le normal L'utilisation de se consiste à (en effet) transposer des lieux de bridi, comme expliqué dans la section 5.11 (p. 97).
+
+Exemple 14.13
+La djan. Nanmu .iseju la djeimyz. Ninmu
+Que John soit un homme ou non, James est une femme.
+
+	Si la na et la sienne sont présentes, ce qui est légal mais jamais nécessaire, na serait avant.
+
+	La syntaxe complète de ijeks est donc:
+.i [na] [se] JA [nai]
+où le cmavo entre parenthèses est facultatif.
+
+14.5 Lien de bridage de Forethought
+Beaucoup de concepts dans Lojban sont exprimables de deux manières différentes, généralement appelées "après coup" et "la prévoyance". La section 14.4 (p. 320) a discuté de ce qu'on appelle "connexion logique bridi". Le mot "afterthought" est utilisé parce que le cmavo conjonctif et le second bridi ont été ajoutés, car ils étaient, après et sans changer la forme du premier bridi. Ce formulaire pourrait être utilisé par quelqu'un qui fait une déclaration et souhaite ensuite ajouter ou qualifier cette déclaration une fois qu'elle a été complétée.
+
+Ainsi,
+Exemple 14.14
+La djan. Nanmu
+
+est un bridi complet, et en ajoutant une connexion après coup pour faire
+
+Exemple 14.15
+La djan. Nanmu .ija la djeimyz. Ninmu
+John est un homme ou James est une femme (ou les deux)
+
+fournit des informations supplémentaires sans nécessiter de changement dans la forme de ce qui précède; des changements qui peuvent ne pas être possibles ou pratiques, surtout en parlant. (Le sens, cependant, peut être changé par l'utilisation d'un connecteur négatif.) Les connexions après-jeu permettent de construire toutes les relations importantes vérité-fonctionnelles de diverses façons.
+
+	Dans le style de prévoyance, le haut-parleur décide à l'avance, avant d'exprimer le premier bridi, qu'il est logique la connexion sera exprimée. Les conjonctures d'avant-propos et de réflexion sont exprimées séparément selma'o. Les connexions logiques de la foret correspondant aux ijeks après coup sont géks:
+
+Exemple 14.16
+Ga la djan. Nanmu gi la djeimyz. Ninmu
+Soit John est un homme, soit James est une femme (ou les deux).
+
+ga est le cmavo qui représente la fonction de vérité A dans selma'o GA. Le mot gi n'appartient pas à
+GA, mais constitue son propre selma'o: il sert uniquement à séparer les deux bridi sans avoir contenu propre. La traduction anglaise de ga ... gi est "soit ... ou", mais dans la forme anglaise la vérité la fonction est spécifiée à la fois par le mot "soit", soit par le mot "ou": non pas dans Lojban.
+
+	Bien que deux bridi soient connectés, les Geks et les Giks n'en ont aucun. La prévision
+construit lie les deux bridi en une seule phrase en ce qui concerne la grammaire.
+
+	D'autres exemples de la connexion bridi de forethought sont:
+
+Exemple 14.17
+Ge la djan. Nanmu gi la djeimyz. Ninmu
+(C'est vrai que) John est un homme et James est une femme.
+
+Exemple 14.18
+Gu la djan. Nanmu gi la djeimyz. Ninmu
+Il est vrai que John est un homme, que James soit ou non une femme
+
+	Il convient de souligner que l'exemple 14.18 (p. 322) n'affirme pas que James est (ou n'est pas) une femme. Le gu qui indique que la djeimyz. Ninmu peut être vrai ou faux est malheureusement assez éloigné de Le bridi a donc été affecté.
+	Peut-être que la plus importante des fonctions de vérité communément exprimées dans la prévision est TFTT, Qui peut être paraphrasé comme "si ... alors ...":
+
+Exemple 14.19
+Ganai la djan. Nanmu gi la djeimyz. Ninmu
+Soit cela, nommé John est-non-un-homme, ou celui-là nommé James is-a-woman.
+Si John est un homme, alors James est une femme.
+
+	Notez le placement du nai dans l'exemple 14.19 (page 323). Lorsqu'il est ajouté au selma'o afterthought tel que JA, un nai suivant nie le second bridi, auquel il est adjacent. Puisque GA cmavo précède le premier bridi, un nai suivant nie le premier bridi à la place.
+
+	Pourquoi l'anglais insiste-t-il sur la prévision dans la traduction de l'exemple 14.19 (page 323)? Peut-être parce que il serait confus d'affirmer apparemment une phrase et de la rendre conditionnelle (qui, en tant que Lojban Forme montre, implique une négation). Les fonctions de vérité impliquant la négation de la première phrase peuvent être confus, même à la compréhension lojbanique, lorsqu'elles sont exprimées à l'aide d'une réflexion ultérieure.
+	Il faut répéter ici que tout l'usage de l'anglais "si ... alors" est correctement traduit par .inaja
+Ou ganai ... gi; Tout ce qui implique le temps nécessite une traduction Lojban quelque peu différente, qui sera discuté à la section 14.18 (p. 347). Des phrases de causalité comme "Si vous nourrissez le cochon, alors ça va grandir" ne sont pas des connecteurs logiques de n'importe quel type, mais ont plutôt besoin d'une traduction à l'aide de rinka que la jointure de selbri Deux abstractions d'événements, ainsi:
+
+Exemple 14.20
+Le nu do cidja dunda fi le xarju
+L'événement-de (la nourriture vous donne le cochon)
+Cu rinka le nu ri ba banro
+Provoque l'événement-de (il va croître).
+
+	La causalité est discutée plus en détail dans la section 9.7 (p. 189).
+	L'exemple 14.21 (p. 323) et l'exemple 14.22 (p. 323) illustre une fonction de vérité, FTTF, qui doit Nier le premier ou le deuxième bridi. Nous comprenons déjà comment annuler le premier bridi:
+
+Exemple 14.21
+Gonai la djan. Nanmu gi la djeimyz. Ninmu
+John n'est pas un homme si et seulement si James est une femme.
+Soit John est un homme, soit James est une femme, mais pas les deux.
+	
+	Comment le second bridi peut-il être négligé? En ajoutant -nai au gi.
+
+Exemple 14.22
+Allez la Djan. Nanmu ginai la djeimyz. Ninmu
+John est un homme si et seulement si James n'est pas une femme.
+Soit John est un homme, soit James est une femme mais pas les deux.
+
+	Un cmavo composé basé sur gi s'appelle un gik; Les seuls giks sont les gi eux-mêmes et le gin.
+
+D'autres exemples:
+
+Exemple 14.23
+Ge la djan. Nanmu ginai la djeimyz. Ninmu
+John est un homme et James n'est pas une femme.
+
+Exemple 14.24
+Ganai la djan. Nanmu ginai la djeimyz. Ninmu
+John n'est pas un homme ou James n'est pas une femme.
+
+La syntaxe de geks est:
+[se] GA [nai]
+
+et des giks (qui ne sont pas eux-mêmes des connecteurs, mais une partie de la machinerie de la prévoyance Connexion) est:
+
+gi [nai]
+
+14.6 connexion Sumti
+
+	Geks et ijeks sont suffisants pour indiquer toutes les connexions logiques possibles entre deux bridi. Cependant, il arrive souvent que deux bridi soient connectés de manière logique ont une ou plusieurs portions en commun:
+
+Exemple 14.25
+La djan. Klama le zarci .ije la .alis. Klama le zarci
+John va sur le marché, et Alice va au marché.
+
+	Ici, seul un sumti diffère entre les deux bridi. Lojban n'exige pas que les deux puissants soient exprimé en entier. Au lieu de cela, un seul bridi peut être donné qui contient les deux sumti et
+Utilise un connecteur logique à partir d'un selma'o différent pour combiner les deux sumti:
+
+Exemple 14.26
+La djan .e la .alis. Klama le zarci
+C'est ce qu'on appelle John et celui-là, nommé Alice aller au marché.
+
+	L'exemple 14.26 (p. 324) signifie exactement la même chose que l'exemple 14.25 (p. 324): on peut rigoureusement transformé dans l'autre sans aucun changement de sens logique. Cette règle est vraie en général pour chaque type de connexion logique différente dans Lojban; Tous, à une exception (voir la section 14.12 (p.333)), peut toujours être transformé en une connexion logique entre des phrases qui expriment la même chose Fonction de vérité.
+
+	Les connexions logiques après réflexion entre sumti sont eks, qui contiennent un cmavo conjonctif de Selma'o A. Si ijeks ont été utilisés dans l'exemple 14.26 (p. 324), la signification serait modifiée:
+
+Exemple 14.27
+La djan. .ije
+Le nom de John [est / fait-quelque chose]. Et
+La .alis. Klama le zarci
+Celui-ci, Alices, va au marché.
+
+	Laissant le lecteur incertain pourquoi John est mentionné du tout.
+
+	Tout ek peut être utilisé entre sumti, même s'il n'y a pas d'équivalent anglais direct:
+
+Exemple 14.28
+La djan. .e la .alis. Klama le zarci
+C'est-à-dire John si-et-seulement-si cela-nommé Alice va au marché.
+John va au marché si, et seulement si, Alice le fait.
+
+	La deuxième ligne de l'exemple 14.27 (p. 324) est très éclairée en anglais, mais la première ligne (dont elle est unTraduction littérale) est excellent Lojban.
+	Qu'en est-il de la connexion sumti de la prévoyance? Comme c'est le cas pour la connexion bridi, les Geks sont appropriés. Ils ne sont pas le seul sérum de la logique logique de la prévoyance, mais sont les plus couramment utilisés Ceux.
+
+Exemple 14.29
+Ga la djan. Gi la .alis. Klama le zarci
+John ou Alice (ou les deux) vont au marché.
+
+	Bien sûr, eks inclut tous les mêmes modèles de cmavo composé que les ijeks font. Quand na ou se fait partie D'un ek, une convention d'écriture spéciale est invoquée, comme dans l'exemple suivant:
+
+Exemple 14.30
+La djan. Na.a la .alis. Klama le zarci
+C'est ce que l'on nomme John seulement, si cela s'appelle Alice au marché.
+John ne va au marché que si Alice le fait.
+
+	Notez la période en na.a. Le cmavo de A commence par des voyelles et doit donc toujours être précédé par une pause. Il est conventionnel d'écrire tous les composés conjonctifs comme des mots simples (sans espaces), mais cette pause doit toujours être marquée par écrit comme dans la parole; Sinon, la na et a tendraient à courir ensemble.
+
+14.7 Plus de deux propositions
+
+	Jusqu'à présent, nous avons vu des connecteurs logiques utilisés pour connecter exactement deux phrases. En savoir plus sur la connexion trois ou plus? Est-ce possible dans Lojban? La réponse est oui, sous réserve de certains avertissements et de certains restrictions.
+
+	Sur les quatre fonctions de vérité primitive A, E, O et U, tout sauf O ont les mêmes valeurs de vérité, peu importe comment leurs phrases composantes sont associées par paires. Donc,
+
+Exemple 14.31
+Mi dotco .ije mi ricfu .ije mi nanmu
+Je suis Allemand. Et je suis riche. Et je suis un homme.
+
+signifie que les trois phrases composantes sont vraies. Également,
+
+Exemple 14.32
+Mi dotco .ija mi ricfu .ija mi nanmu
+Je suis Allemand. Ou je suis riche. Ou je suis un homme.
+
+signifie qu'une ou plusieurs des phrases composantes sont vraies.
+
+	O, cependant, est différent. Travailler la table de la vérité pour
+
+Exemple 14.33
+Mi dotco .ijo mi ricfu .ijo mi nanmu
+Je suis Allemand. Si-et-seulement - si je suis riche. Si-et-seulement-si je suis-a-man.
+
+	Montre que l'exemple 14.33 (p. 325) ne signifie pas que je ne suis que les trois choses ou aucune leur; Au lieu de cela, une traduction précise serait:
+Parmi les trois propriétés - allemand-ness, richesse et virilité - je possède exactement un ou bien tout Trois.
+	En raison de la contre-intuition de ce résultat, il est plus sûr d'éviter O avec plus de deux
+phrases. De même, les connectifs qui impliquent la négation ont également des valeurs de vérité inattendues lorsque utilisé avec plus de deux phrases.
+	En fait, aucune combinaison de connecteurs logiques ne peut produire l'interprétation "tout ou rien" (Mais pas atteint) par l'exemple 14.33 (p. 325) sans répéter l'un des bridi. Voir l'exemple 14.48 (p.328).
+	Il y a une difficulté supplémentaire avec l'utilisation de plus de deux phrases. Quel est le sens de:
+
+Exemple 14.34
+Mi nelci la djan. .ije mi nelci la martas.
+J'aime ça, nommé John. Et j'aime ça, nommé Martha.
+.ija mi nelci la meris.
+Ou j'aime ça, nommé Mary.
+
+	Est-ce que ça veut dire:
+
+Exemple 14.35
+J'aime John, et j'aime Martha ou Mary ou les deux.
+
+Ou est la traduction correcte:
+
+Exemple 14.36
+Soit j'aime John et j'aime Martha, ou j'aime Mary, ou les deux.
+
+	L'exemple 14.36 (p. 326) est la traduction correcte de l'exemple 14.34 (p. 325). La raison en est que Lojban les connecteurs logiques se séparent de la gauche, comme beaucoup de constructions dans la langue. Cette règle, appelée le groupe de gauche règle, est facile à oublier, surtout lorsque l'intuition s'arrête dans l'autre sens. Connectifs de prévoyance ne sont pas soumis à ce problème:
+
+Exemple 14.37
+Ga ge mi nelci la djan.
+L'un ou l'autre (J'aime ça, nommé John
+Gi mi nelci la martas.
+Et j'aime ça - nommé Martha)
+Gi mi nelci la meris.
+Ou j'aime ça, nommé Mary.
+
+Est équivalent à l'exemple 14.34 (p. 325), alors que
+
+Exemple 14.38
+Ge mi nelci la djan.
+J'aime cela, nommé John
+Gi ga mi nelci la martas.
+Et (Ou bien j'aime ça - nommé Martha
+Gi mi nelci la meris.
+Ou j'aime ça - nommé Mary).
+
+N'est pas équivalent à l'exemple 14.34 (p. 325), mais est plutôt une traduction valide dans Lojban, en utilisant prévision, de l'exemple 14.35 (p. 325).
+
+14.8 Groupement de connecteurs d'après coup
+
+Il existe plusieurs façons dans Lojban de rendre l'exemple 14.35 (p. 325) à l'aide d'une réflexion ultérieure. Le plus simple la méthode consiste à utiliser le cmavo bo (de selma'o BO). Ce cmavo a plusieurs fonctions à Lojban, mais est toujours associé à une priorité élevée et à une portée courte. En particulier, si bo est placé après un ijek, le résultat est un type grammaticalement distinct d'ijek qui remplace la règle régulière du groupe de gauche. Les connexions marquées avec bo sont interprétées avant les connexions non marquées. Exemple 14.39 (page 326) est équivalent à l'exemple 14.38 (p. 326):
+
+Exemple 14.39
+Mi nelci la djan. .ije mi nelci la martas.
+J'aime ça, nommé John, et j'aime ça, nommé Martha
+.ijabo mi nelci la meris.
+Ou j'aime ça, nommé Mary.
+
+	La traduction anglaise indique faiblement avec une virgule ce que le Lojban marque beaucoup plus clairement: le "J'aime Martha" et "J'aime Mary" les phrases sont jointes par .ija d'abord, avant que le résultat ne soit joint à "J'aime John "par .ije.
+	Eks peut avoir été attaché de la même manière, de sorte que l'exemple 14.40 (p. 326) soit équivalent dans ce qui signifie l'exemple 14.39 (page 326):
+
+Exemple 14.40
+Mi nelci la djan. .e la martas. .abo la meris.
+
+	Les connecteurs de la prévoyance, cependant, ne peuvent jamais être suffixés avec bo, pour chaque usage de la prévoyance les connexions indiquent clairement le motif de groupement prévu.
+
+	Que se passe-t-il si bo est utilisé sur les deux connecteurs, leur donnant le même haut de priorité, comme dans
+
+Exemple 14.41 (p. 327)?
+Exemple 14.41
+Mi nelci la djan. .ebo la martas. .abo la meris.
+
+	Est-ce que cela se traduit par le même exemple que l'exemple 14.34 (p. 325) et l'exemple 14.36 (p. 326)? Pas à tout. Une deuxième règle relative à bo est celle où plusieurs connecteurs marqués sont utilisés successivement, la règle de regroupement gauche de Lojban normale est remplacée par une règle de regroupement à droite. En conséquence, l'exemple 14.41 (P. 327) signifie en fait le même que l'exemple 14.39 (p. 326) et l'exemple 14.40 (page 326). Cette règle peut être occasionnellement exploité pour des effets spéciaux, mais il est délicat de garder tout droit; Par écrit destiné à être facile pour comprendre, plusieurs connexions consécutives marquées avec bo devraient être évitées.
+
+	L'utilisation de bo, par conséquent, devient délicate dans des connexions complexes de plus de trois phrases. En regardant de retour aux traductions anglaises de l'exemple 14.37 (p. 326) et de l'exemple 14.38 (p. 326), parenthèses ont été utilisés pour clarifier le regroupement. Ces parenthèses ont leurs équivalents Lojban, deux ensembles réellement. Tu'e et tu'u sont utilisés avec ijeks, et ke and ke'e avec eks et autres connectifs à discuter plus tard. (Ke et ke'e sont également utilisés dans d'autres rôles dans la langue, mais toujours en tant que marqueurs de regroupement).
+Considérons la phrase anglaise:
+
+Exemple 14.42
+Je vous embrasse et vous m'embrassez, si je vous aime et vous m'aimez.
+
+	Où la sémantique nous dit que les instances de "et" sont censées avoir un précédent plus élevé que celui de "si". Si nous souhaitons exprimer l'exemple 14.42 (p. 327) après réflexion, on peut dire:
+
+Exemple 14.43
+Mi cinba do .ije [bo] do cinba mi
+Je vous embrasse et vous m'embrassez,
+.ijanai mi prami do .ijebo do prami mi
+Si je t'aime et que tu m'aimes.
+
+marquant deux des ijeks avec bo pour un haut précédent. (Le premier bo n'est pas strictement nécessaire, en raison de la règle de regroupement de gauche, et est présentée ici entre parenthèses).
+
+	Mais il est plus clair d'utiliser des mots de parenthèse explicite et de dire:
+
+Exemple 14.44
+Tu'e mi cinba do .ije do cinba mi tu'u
+(Je vous embrasse et vous m'embrassez)
+.ijanai tu'e mi prami do .ije do prami mi [tu'u]
+Si (je t'aime et tu m'aimes).
+
+Où les paires tu'e ... tu'u ont déclenché la structure. Le cmavo tu'u est un terminateur élogieux, et son deuxième l'occurrence dans l'exemple 14.44 (p. 327) est entre parenthèses, car tous les terminaux peuvent être éliminés à la fin d'un texte.
+
+	En outre, les parenthèses sont une solution générale: plusieurs parenthèses peuvent être imbriquées dans un un autre, et d'autres éléments ultérieurs peuvent être ajoutés sans bouleverser la structure existante. Aucun de ces deux avantages ne s'applique au groupement bo. En général, les constructions de construction après-vente généralité pour la simplicité.
+
+	En raison de la règle de regroupement à gauche, le premier ensemble de parenthèses tu'e ... tu'u peut effectivement être laissé en tout, produisant:
+
+Exemple 14.45
+Mi cinba do .ije do cinba mi
+Je t'embrasse et tu m'embrasses
+.ijanai tu'e mi prami do .ije do prami mi [tu'u]
+Si (je t'aime et tu m'aimes).
+
+Qu'en est-il de la connexion sumiti entre parenthèses? Considérer
+
+Exemple 14.46
+Je me dirige vers le marché et la maison, ou l'école et le bureau.
+
+Deux paires de parenthèses, analogues à l'exemple 14.44 (p. 327), semblent être la bonne approche.
+Cependant, c'est une règle de la grammaire de Lojban selon laquelle un sumti ne peut pas commencer par ke, donc le premier ensemble de les parenthèses doivent être omises, en produisant l'exemple 14.47 (p. 328), qui est plutôt parallèle à Exemple 14.45 (p. 327):
+
+Exemple 14.47
+Mi dzukla le zarci .e le zdani
+Je me promène au marché et à la maison
+.e ke le ckule .e le briju [ke'e]
+Ou (l'école et le bureau).
+
+	Si Sumti était autorisé à commencer par ke, des ambiguïtés inévitables résulteraient, donc ke grouping of Sumti est autorisé juste après un connecteur logique. Cette règle ne s'applique pas au groupement tu'e de bridi, comme le montre l'exemple 14.44 (p. 327).
+
+	Maintenant, nous avons suffisamment d'équipements pour résoudre le problème de l'exemple 14.33 (p. 325): «Je suis allemand, riche,et un homme - ou sinon aucun de ceux-ci. "La paraphrase suivante a la signification correcte:
+
+Exemple 14.48
+[Tu'e] mi dotco .ijo mi ricfu [tu'u]
+(Je suis-allemand si-et-seulement-si je suis-riche)
+.ije tu'e mi dotco .ijo mi nanmu [tu'u]
+Et (je suis-allemand si-et-seulement-si je suis-a-man).
+
+	La table de vérité, lorsqu'elle est élaborée, produit T si et seulement si les trois phrases composantes sont vraies ou les trois sont fausses.
+
+14.9 Bridi composé
+
+	Jusqu'à présent, nous avons vu comment gérer deux phrases qui n'ont pas besoin de ressemblance (connexion bridi) et des phrases identiques sauf une différence dans un sumti (connexion sumti). Il semblerait naturel de demander comment relier logiquement des phrases qui sont identiques à l'exception d'un selbri différent.
+
+	Surprise! Lojban ne fournit aucun connecteur logique conçu pour gérer selbri et rien d'autre.
+Au lieu de cela, la connexion selbri est fournie dans le cadre d'un mécanisme plus général appelé "composé Bridi ". Le résultat composite résultant de la connexion logique des phrases qui diffèrent dans leur selbri et éventuellement une partie de leur sumti.
+
+	Les cas les plus simples résultent lorsque le x1 sumti est le seul point commun:
+
+Exemple 14.49
+Mi klama le zarci .ije mi nelci la djan.
+Je vais au marché, et j'aime ça, nommé John.
+
+	Est équivalent au sens du composé bridi:
+
+Exemple 14.50
+Mi klama le zarci gi'e nelci la djan.
+Je vais au marché et comme ça, nommé John.
+
+	Comme le montre l'exemple 14.50 (p. 328), les giheks sont utilisés dans une optique ultérieure pour créer des composés bridi; Gi'e est-ce que le gihek correspond à "et". Les phrases réelles klama le zarci et nelci la djan. que le les connexions gihek sont connues sous le nom de "bridi-tails", car elles représentent (dans cette utilisation) la "queue" d'un bridi, y compris le selbri et tout sumti suivant, mais à l'exclusion de tout sumti qui précède le selbri:
+
+Exemple 14.51
+Mi ricfu gi'e klama le zarci
+Je suis riche et je vais au marché
+	Dans l'exemple 14.51 (p. 328), la première queue de bridi est ricfu, un selbri simple, et la deuxième queue de bridi est klama le zarci, un selbri avec un sumti suivant.
+
+	Supposons que plus d'un sumti soit identique entre les deux phrases:
+
+Exemple 14.52
+Mi dunda le cukta do .ije mi lebna lo rupnu do
+Je vous livre le livre, et je prends des unités monétaires de vous.
+
+	Dans l'exemple 14.52 (p. 329), le premier et dernier sumti de chaque bridi sont identiques; Le selbri et le second sumti sont différents. En déplaçant le sommet final au début, une forme analogue à l'exemple 14.50 (p.328) peut être atteint:
+
+Exemple 14.53
+Fi do fa mi dunda le cukta
+À partir de vous je donne le livre
+Gi'e lebna lo rupnu
+Et prendre des unités monétaires.
+
+	Où le fi n'a pas une traduction exacte en anglais, car il ne fait que des places à la troisième place de lebna et dunda. Cependant, une forme qui conserve l'ordre sumti naturel existe également à Lojban. Giheks relie deux bridi-tails, mais permet également d'ajouter sumti à la suite du bridi-tail. Ces sumti sont connus sous le nom de termes de queue, et s'appliquent aux deux bridi. La version directe de l'exemple 14.52 (P. 329) est donc:
+
+Exemple 14.54
+Mi dunda le cukta gi'e lebna lo rupnu vau do
+Je (donner le livre) et (prendre des unités monétaires) de / à partir de vous.
+
+	Le vau (de selma'o VAU) sert à séparer le bridi-tail des termes de la queue. Chaque bridi-tail est rerminé par un vau elidable, mais seulement en relation avec bridi composé est-il toujours nécessaire d'exprimer ce vau. Ainsi:
+
+Exemple 14.55
+Mi klama le zarci [vau]
+Je vais au marché.
+
+a un seul vau élu, et l'exemple 14.50 (p. 328) est équivalent à:
+
+Exemple 14.56
+Mi klama le zarci [vau] gi'e nelci la djan. [Vau] [vau]
+
+où le double vau à la fin de l'exemple 14.56 (p. 329) se termine à la fois par le bridi-tail droit et les termes de la queue non exprimés.
+	Une utilisation finale des giheks consiste à combiner les cols de bridi utilisés comme phrases complètes, l'observatoire de Lojban:
+
+Exemple 14.57
+Klama le zarci gi'e dzukla le briju
+A-goer to-the market et a-walker to-the office.
+
+Puisque x1 est omise dans les deux versions de l'exemple 14.57 (p. 329), ce composé bridi ne fonctionne pas n'implique pas nécessairement que le goer et le marcheur soient les mêmes. Seule la présence d'un x1 explicite (Autre que zo'e, ce qui équivaut à une omission) peut forcer l'utilisateur et le marcheur à être identiques.
+	Un argument fort pour cette convention est fourni par l'analyse de l'exemple suivant:
+
+Exemple 14.58
+Klama la nu, IORK.
+A-goer to-that-named New-York
+La finyks.
+À partir de ce que l'on appelle Phoenix
+Gi'e klama la nu, IORK.
+Et a-goer to-that-named New-York
+La rom.
+À partir de ce que l'on appelle Rome.
+
+	Si la règle était que les endroits x1 des deux bridi sous-jacents étaient considérés comme identiques, alors (depuis il n'y a rien de spécial sur x1), les endroits non spécifiés x4 (route) et x5 (moyens) devraient également être le même, conduisant à l'absurde résultat que la route de Phoenix à New York est la même que la route de Rome à New York. Insérer da, ce qui signifie à peu près «quelque chose», dans le x1 place cures le problème:
+
+Exemple 14.59
+Da klama la nu, IORK. La finyks.
+Quelque chose est-a-goer to-that-named New-York from-that-named Phoenix
+Gi'e klama la nu, IORK. La rom.
+Et est-a-goer à-que-nommé New-York de-que-nommé Rome.
+
+	La syntaxe des giheks est:
+
+[Na] [se] GIhA [nai]
+
+Ce qui est exactement parallèle à la syntaxe de eks.
+
+14.10 Bridi composite multiple
+
+	Les Giheks peuvent être combinés avec bo de la même manière que eks:
+
+Exemple 14.60
+
+Mi nelci la djan. Gi'e nelci la martas. Gi'abo nelci la meris.
+J'aime John et (comme Martha ou Mary).
+
+est équivalent au sens de l'Exemple 14.39 (p. 326) et de l'Exemple 14.40 (page 326). De même, ke ... ke'e le regroupement peut être utilisé après les giheks:
+
+Exemple 14.61
+Mi dzukla le zarci
+Je marche vers le marché
+Gi'e dzukla le zdani
+Et promenade à la maison,
+Gi'a ke dzukla le ckule
+Ou (aller à l'école
+Gi'e dzukla le briju [ke'e]
+Et marcher dans le bureau. )
+
+est la version gihek de l'exemple 14.47 (p. 328). La même règle est d'utiliser ke ... ke'e bracketing uniquement après qu'un connecteur s'applique aux bridi-tails quant à sumti, donc les deux premiers bridi-tails dans l'exemple 14.61 (p. 330) ne peut pas être regroupé explicitement; Le groupement de gauche implicite suffit pour les associer.
+
+	Chacune des paires de queues bridi jointes par plusieurs giheks peut avoir son propre jeu de queue-termes:
+
+Exemple 14.62
+Mi dejni lo rupnu la djan.
+[Si] je dois des unités monétaires à ce nom John,
+.inaja mi dunda le cukta la djan.
+Alors je donne le livre à ce nom John
+.ijabo mi lebna le cukta la djan.
+Ou je prends le livre de ce nom John.
+
+est équivalent au sens de:
+
+Exemple 14.63
+Mi dejni lo rupnu nagi'a dunda
+[Si] je dois des unités de monnaie alors (donner
+Gi'abo lebna vau le cukta vau la djan.
+Ou prenez) un livre à / à partir de celui-là nommé John.
+
+	La traduction anglaise littérale dans l'exemple 14.63 (p. 331) est presque inintelligible, mais le Lojban est parfaitement grammaticale. Mi remplit le x1 de tous les trois selbri; Lo rupnu est le x2 de dejni, alors que le cukta est une queue de partage partagée entre dunda et lebna; La djan. Est un terme partagé par dejni et par dunda gi'abo lebna. Dans ce cas, une plus grande clarté est probablement réalisée en déménagant la djan. Au début de la phrase, comme dans l'exemple 14.53 (p. 329):
+
+Exemple 14.64
+Fi la djan. Fa mi dejni lo rupnu
+À / de celui-là nommé John, [si] je dois des unités monétaires
+Nagi'a dunda gi'abo lebna vau le cukta
+Alors [je] donne ou prends le livre.
+
+	Enfin, qu'en est-il de la logique logique d'avant-garde de bridi-tails? Il n'existe aucun mécanisme direct pour le but. Au lieu de cela, la grammaire de Lojban permet à une paire de phrases liées à la foret de fonctionner comme une seule queue de pont, et bien sûr, les phrases n'ont pas besoin d'avoir des termes avant leur selle. Par exemple:
+
+Exemple 14.65
+Mi ge klama le zarci gi nelci la djan.
+Je suis tous deux sur le marché et comme ça, nommé John.
+
+est équivalent à l'exemple 14.50 (p. 328).
+
+	Bien sûr, l'une ou l'autre des phrases connectées peut contenir des giheks:
+
+Exemple 14.66
+Mi ge klama le zarci gi'e dzukla le zdani
+Je les deux (aller au marché et marcher jusqu'à la maison)
+Gi nelci la djan.
+Et comme ça, nommé John.
+
+	Toute la paire de phrases connectées par gek peut être annulée dans son ensemble en prévenant na:
+
+Exemple 14.67
+Mi na ge klama le zarci gi dzukla le zdani
+[Faux!] Je me rends au marché et je me promène dans la maison.
+
+	Puisque une paire de phrases jointes par geks est l'équivalent d'une queue de pont, il peut être suivi d'une queue termes. L'équivalent de l'exemple 14.54 (p. 329) de l'exemple 14 est:
+
+Exemple 14.68
+Mi ge dunda le cukta
+Je les deux (donner le livre)
+Gi lebna lo rupnu vau do
+Et (prenez des unités monétaires) de / à partir de vous.
+
+	Voici une paire d'observateurs liés à Gek, un équivalent de l'exemple 14.57 (p. 329):
+
+Exemple 14.69
+Ge klama le zarci gi dzukla le briju
+A-goer to-the market et a-walker to-the office.
+
+Enfin, voici un exemple de phrases liées à Gek avec des termes partagés et non partagés avant
+Leur selbri:
+
+Exemple 14.70
+
+Mi gonai le zarci cu klama gi le bisli cu dansu
+Je ne l'ai pas, mais pas, à la fois, le bureau va ou entends la danse de glace.
+
+Je vais au bureau ou danser sur la glace (mais pas les deux).
+
+14.11 Connexion logique de termes
+
+Jusqu'à présent, nous avons vu des phrases qui diffèrent dans tous les composants et nécessitent une connexion bridi; phrases qui diffèrent en un sumti seulement, et permettent la connexion sumti; Et des phrases qui diffèrent selon le selbri et éventuellement un ou plusieurs sumti, et permettent une connexion bridi-tail. Les connecteurs logiques de termes sont utilisés pour des phrases qui diffèrent dans plus d'un sumti mais pas dans le selbri, telles que:
+
+Exemple 14.71
+Je vais au marché depuis le bureau et à la maison de l'école.
+
+	La version de Lojban de l'exemple 14.71 (p. 332) nécessite deux termes définis par un connecteur logique. Un «terme» est soit un sumti ou un sumi précédé d'une étiquette tendue ou modale telle que pu ou bai. Après-pensée les termes sont formés en unissant les termes ensemble en insérant le cmavo ce'e (de selma'o CEhE) entre chacun d'eux. En outre, le connecteur logique (qui est un jek) doit être préfixé par le cmavo pe'e (De selma'o PEhE). (Nous pourrions nous référer à la combinaison de pe'e et un jek comme un "pehejek", je suppose.)
+
+Exemple 14.72
+Mi klama le zarci ce'e le briju
+Je vais au marché [plus] du bureau
+Pe'e je le zdani ce'e le ckule
+[Joint] et à la maison [plus] de l'école.
+
+La traduction littérale utilise "[plus]" pour indiquer le connecteur de termeset et "[joint]" pour indiquer le position de l'articulation logique logique. Comme d'habitude, il existe une forme de connexion bridi équivalente:
+
+Exemple 14.73
+Mi klama le zarci le briju
+Je vais au marché à partir du bureau,
+.ije mi klama le zdani le ckule
+Et je vais à la maison de l'école.
+
+ce qui illustre que les deux bridi diffèrent uniquement dans les endroits x2 et x3.
+
+	Que se passe-t-il si les deux ensembles de termes joints ont une longueur inégale? S'allonger à la connexion bridi sera toujours clair quel terme dans quel lieu de bridi. Il se peut qu'un sumti puisse tomber dans la x2 place d'un bridi et le x3 lieu d'un autre:
+
+Exemple 14.74
+Mi pe'e ja do ce'e le zarci cu klama le briju
+Je [joint] ou vous [plus] à-le marché aller / de-le bureau.
+
+peut être clairement compris par l'expansion à:
+
+Exemple 14.75
+Mi klama le briju .ija do le zarci cu klama
+Je vais au bureau, ou à toi, le marché va
+Le briju
+du bureau.
+
+	Donc le briju est votre origine, mais ma destination, et tombe donc dans les x2 et x3 endroits de klama simultanément! Ceci est légal parce que même s'il n'y a qu'un seul selbri, klama, il existe deux types distincts bridi exprimé ici. De plus, l'exemple 14.74 (p. 332) sert de terminal contenant uniquement un terme. Un paradoxe analogue s'applique aux bridi composés avec des termes de queue et des nombres inégaux de sumti dans les bridi-tails connectés:
+
+Exemple 14.76
+Mi klama le zarci gi'e dzukla vau le briju
+Je (aller au marché et marcher) à / de-le bureau.
+
+signifie que je vais au marché à partir du bureau, et je me rends au bureau; Le briju est le lieu x3 de klama et le x2 lieu de dzukla. Les termes de la prévoyance existent également, et utilisent nu'i de selma'o NUhI pour signaler le début et nu'u de selma'o NUhU (un terminateur élutable) pour signaler la fin. Rien n'est inséré entre le particulier termes: ils sont simplement assis côte à côte. Pour établir une connexion logique dans un terme définitif, utilisez un gek, avec le gek juste après le nu'i, et un extra nu'u juste avant le gik:
+
+Exemple 14.77
+Mi klama nu'i ge le zarci le briju
+Je vais [start-termset] à la fois sur le marché depuis le bureau
+Nu'u gi le zdani le ckule [nu'u]
+[Joint] et à la maison de l'école [terminet-terminet].
+
+	Notez que même si deux termes sont en cours de connexion, un seul nu'i est utilisé.
+	Les utilisations grammaticales des termes qui ne contiennent pas de connecteurs logiques sont expliquées à la section 9.8 (P. 192), la section 10.25 (page 243) et la section 16.7 (page 382).
+
+14.12 Connexion logique au sein de tanru 
+
+	Comme indiqué au début de la section 14.9 (p. 328), il n'y a pas de connexion logique à Lojban qui rejoint Selbri et rien que Selbri. Cependant, il est possible d'avoir des connecteurs logiques à l'intérieur d'un selbri, en formant une sorte de tanru qui implique une connexion logique. Considérons le simple tanru blanu zdani, la maison bleue. Maintenant, tout ce qui est une balle bleue, dans la compréhension la plus ordinaire de la phrase au moins, est à la fois bleu et une balle. Et en effet, au lieu de blanu bolci, les Lojbanistes peuvent dire blanu je bolci, en utilisant un connecteur jék à l'intérieur du tanru. (Nous avons également vu les jambes utilisés dans la section 14.11 (p. 332), mais là, ils étaient toujours préfixés par pe'e; Dans cette section, ils sont utilisés seuls.) Voici une paire d'exemples:
+
+Exemple 14.78
+Ti blanu zdani
+C'est une maison de type «bleu».
+
+Exemple 14.79
+Ti blanu je zdani
+Ceci est-bleu et est-à-maison.
+
+	Mais bien sûr, l'exemple 14.78 (p. 333) et l'exemple 14.79 (p.333) ne sont pas nécessairement équivalents dans sens! C'est le point le plus élémentaire de Lojban tanru que l'exemple 14.78 (p. 333) pourrait tout comme bien significatif
+
+Exemple 14.80
+C'est une maison pour les habitants bleus.
+
+et l'exemple 14.79 (p. 333) n'est certainement pas équivalent à l'exemple 14.80 (p. 333).
+	Une explication complète de la connexion logique au sein de tanru appartient plutôt à une discussion sur la structure selbri que des connecteurs logiques en général. Pourquoi? Parce que, bien que l'exemple 14.79 (p. 333) arrive à signifier le même que
+
+Exemple 14.81
+Ti blanu gi'e zdani
+Et par conséquent comme
+Exemple 14.82
+Ti blanu .ije ti zdani
+
+la règle de l'expansion en bridi séparé ne fonctionne pas toujours pour une connexion simultanée. Supposant Alice est une personne qui vit dans des maisons bleues, alors
+
+Exemple 14.83
+La .alis. Cu blanu je zdani prenu
+Le nom d'Alice est-a- (bleu et maison) type de personne.
+
+serait vrai, parce que le groupement de tanru avec un jek a un précédent plus élevé que le tanru non marqué regroupant, mais:
+
+Exemple 14.84
+La .alis. Cu blanu prenu
+C'est-à-dire Alice est-une personne bleue,
+.ije la .alis. Cu zdani prenu
+Et celui-ci, nommé Alice, est une personne de maison.
+
+est probablement faux, parce que le blueness est associé à la maison, pas avec Alice, même en laissant de côté la question de savoir ce que signifie dire "Alice est une personne bleue". (Peut-être appartient-elle à l'équipe Blue, ou Porte des vêtements bleus.) L'ambiguïté sémantique du tanru rend ces manipulations logiques impossibles.
+
+	Il suffit ici de noter ici quelques points purement grammaticaux sur la connexion logique Tanru. Bo may être annexé à jeks quant à eks, avec les mêmes règles:
+
+Exemple 14.85
+La teris. Cu ricfu je nakni jabo fetsi
+C'est-à-dire que Terry est riche et (masculin ou féminin).
+
+	Les composants du tanru peuvent être groupés avec ke avant et après un connecteur logique:
+
+Exemple 14.86
+La .teris. Cu [ke] ricfu ja pindi [ke'e]
+C'est-à-dire Terry (est-riche ou pauvre)
+Je ke nakni ja fetsi [ke'e]
+Et (homme ou femme).
+
+où la première paire ke ... ke'e peut être omise entièrement par la règle du groupage gauche, mais est facultativement permis. En tout cas, la dernière instance de ke'e peut être éliminée.
+
+	La syntaxe de jeks est:
+[na] [se] JA [nai]
+
+	parallèlement à eks et giheks.
+
+	La connexion Tanru antidéflagée n'utilise pas Geks, mais utilise plutôt Guheks. Les Guheks ont exactement la même type que Geks:
+[Se] GUhA [nai]
+	L'utilisation de guheks en connexion tanru (plutôt que geks) résout ce qui serait autrement une ambiguïté inacceptable entre la connexion bridi-tail et tanru:
+Exemple 14.87
+La .alis. Gu'e ricfu gi fetsi
+C'est ce qu'on appelle Alice, à la fois riche et féminine.
+
+	Notez que les giks sont utilisés avec guheks de la même manière qu'ils sont utilisés avec les Geks. Comme jeks, guheks se lie plus étroitement que le groupement de tanru non marqué:
+
+Exemple 14.88
+La .alis. Gu'e blanu gi zdani prenu
+C'est ce qu'on appelle Alice est-a- (à la fois bleu et à la maison) type de personne.
+
+est la version prévisionnelle de l'exemple 14.83 (p. 334).
+
+	Un mot de prudence quant à l'utilisation de tanru logiquement connecté dans les descriptions. Basé en anglais l'intuition peut entraîner l'égarement du haut-parleur. En réduisant correctement
+
+Exemple 14.89
+Mi viska pa nanmu .ije mi viska pa ninmu
+Je vois un homme, et je vois une femme.
+
+à
+
+Exemple 14.90
+Mi viska pa nanmu .e pa ninmu
+Je vois un homme et une femme.
+
+il y a une grande tentation de réduire davantage:
+
+Exemple 14.91
+Mi viska pa nanmu je ninmu
+Je vois un homme et une femme.
+
+Mais l'exemple 14.91 (p. 335) signifie que vous voyez une chose qui est à la fois un homme et une femme simultanément! Un nanmu je ninmu est une manie, une créature vraisemblablement inexistante qui est à la fois une nanmu et un ninmu.
+
+14.13 Questions de vérité et questions de connectivité
+
+Jusqu'à présent, nous n'avons abordé que des phrases qui sont des déclarations. Lojban, comme toutes les langues humaines, a besoin aussi pour traiter les phrases qui sont des questions. Il existe de nombreuses façons de poser des questions à Lojban, mais certains d'entre eux (comme les questions concernant la quantité, le temps et l'émotion) sont discutés dans d'autres chapitres. Le type de question le plus simple est du type "Est-il vrai que ..." où une déclaration suit. Ce type s'appelle une "question de vérité" et peut être représenté en anglais par l'exemple 14.92 (p. 335):
+
+Exemple 14.92
+Est-il vrai que Fido est un chien?
+Est-ce que Fido est un chien?
+
+	Notez les deux formulations. Les questions de vérité en anglais peuvent toujours être formées en préconisant "Is is true que "au début d'une déclaration; Il y a aussi habituellement une manière plus idiomatique consistant à Verbe avant son sujet. "Fido est-il un chien?" Est la question de la vérité correspondant à "Fido est un chien". Dans Lojban, le mécanisme équivalent consiste à préfixer le cmavo xu (de selma'o UI) à la déclaration:
+
+Exemple 14.93
+Xu la faidon. Gerku
+Est-ce-vrai-que c'est-à-dire-Fido est-a-dog?
+
+	L'exemple 14.92 (p. 335) et l'exemple 14.93 (p. 335) ont un sens équivalent.
+	Une question de vérité peut être répondu «oui» ou «non», selon la vérité ou la fausseté, respectivement, de la déclaration sous-jacente. La façon standard de dire "oui" à Lojban est go'i et de dire "non" est nago'i. (Les raisons de cette règle sont expliquées à la section 7.6 (p. 146).) En réponse à l'exemple 14.93 (p. 335), les réponses possibles sont les suivantes:
+
+Exemple 14.94
+Go'i
+Fido est un chien.
+
+et
+
+Exemple 14.95
+Nago'i
+Fido n'est pas un chien.
+
+	Certaines questions d'anglais semblent avoir la même forme que les questions de vérité jusqu'ici discutées. Considérer
+
+Exemple 14.96
+Fido est-il un chien ou un chat?
+
+	Superficiellement, l'exemple 14.96 (p. 336) semble être une question de vérité avec l'affirmation sous-jacente:
+
+Exemple 14.97
+Fido est un chien ou un chat.
+
+	En traduisant l'exemple 14.97 (p. 336) en Lojban et en précisant xu pour signaler une question de vérité, nous obtenons:
+
+Exemple 14.98
+Xu la faidon. Gerku gi'onai mlatu
+Est-ce-vrai-que cela-nommé Fido est-a-dog ou is-a-cat (mais pas les deux)?
+
+	Étant donné que Fido est vraiment un chien ou un chat, la réponse appropriée serait go'i; Si Fido était un poisson, la réponse appropriée serait nago'i.
+
+	Mais ce n'est pas ce qu'un interlocuteur d'anglais qui prononce l'exemple 14.96 (p. 336) demande! La vérité La signification de l'exemple 14.96 (p. 336) est que l'orateur désire connaître la valeur de vérité de l'un ou l'autre des deux bridi sous-jacents (on présuppose qu'un seul est vrai).
+	Lojban a un mécanisme élégant pour rendre ce genre de question qui est très différente de celle utilisée en anglais. Au lieu de demander à propos de la valeur de vérité de la bridi connectée, les utilisateurs de Lojban demandent à propos de Fonction de vérité qui les relie. Cela se fait en utilisant une question spéciale cmavo: il y a une des ceux-ci pour chacun des logmatiques logiques selma'o, comme le montre le tableau suivant:
+
+Ge'i GA forethought question de connectivité
+Gi'i GIhA question de connectivité bridi-queue
+Gu'a GUHA Tanru Forethought Question conjoncturelle
+Je'i JA tanru question de connectivité
+Ji Une question conjoncturelle
+
+(Cette liste s'écarte malheureusement de la jolie régularité de l'autre cmavo pour la connexion logique. Les deux syllabes selma'o, GIhA et GUhA utilisent le cmavo se terminant par "-i" qui n'est pas utilisé pour Une fonction de vérité, mais gi et moi n'étaient pas disponibles, et il fallait choisir un cmavo différent. Ce tableau doit simplement être mémorisé, comme la plupart des autres affectations cmavo non-connectibles.)
+
+	Une traduction correcte de l'exemple 14.96 (p. 336) emploie une question gihek:
+
+Exemple 14.99
+La .alis. Gerku gi'i mlatu
+C'est ce qu'on appelle Alice is-a-dog [truth-function?] Is-a-cat?
+
+Voici quelques réponses plausibles:
+
+Exemple 14.100
+Nagi'e
+Alice n'est pas un chien et c'est un chat.
+
+Exemple 14.101
+Gi'enai
+Alice est un chien et n'est pas un chat.
+
+Exemple 14.102
+Nagi'enai
+Alice n'est pas un chien et n'est pas un chat.
+
+Exemple 14.103
+Nagi'o
+Gi'onai
+Alice est un chien ou est un chat mais pas les deux (je ne dis pas qui).
+
+	L'exemple 14.103 (p. 337) est correct mais non coopératif.
+	Comme d'habitude, les questions de Lojban sont répondues en remplissant le blanc laissé par la question. Ici, le blanc est un connecteur logique, et donc il est grammatical dans Lojban de prononcer un connecteur logique nu sans Tout pour se connecter.
+	La réponse gi'e, ce qui signifie que Alice est un chien et est un chat, est impossible dans le monde réel, mais pour:
+
+Exemple 14.104
+Do djica tu'a loi ckafi
+Vous désirez quelque chose - au sujet d'une masse de café
+Ji loi tcati
+[La fonction de vérité?] A-masse de thé?
+Voulez-vous du café ou du thé?
+L
+a réponse e, ce qui signifie que je veux les deux, est parfaitement plausible, sinon nécessairement polie.
+	Les questions de prévision ge'i et gu'i sont utilisées comme les autres, mais l'ambiguïté interdit l'utilisation de Les connectifs d'inconvénient isolés comme réponses - ils ressemblent au début du bridi connecté à la prévoyance. Donc, bien que l'exemple 14.105 (p. 337) soit la version préliminaire de l'exemple 14.104 (p. 337):
+
+Exemple 14.105
+Do djica tu'a ge'i loi ckafi
+Vous désirez quelque chose - sur [la fonction de la vérité?] A-masse de café
+Gi loi tcati
+[Ou] une masse de thé?
+
+la réponse doit être sous forme décontractée.
+
+	Il existe des langues naturelles, notamment le chinois, qui emploient la forme lojbanique de connexion question. La phrase chinoise
+
+Exemple 14.106
+Ni3Zou3Hai2Shi pao3
+Vous marchez [ou?] Courez?
+
+signifie «Marchez-vous ou courez-vous?», Et est exactement parallèle au Lojban:
+
+Exemple 14.107
+Do cadzu gi'i bajra
+Vous marchez [ou?] Courez?
+
+	Toutefois, le chinois n'utilise pas de connecteurs logiques dans la réponse à une telle question. La ressemblance, bien que frappante, est superficielle.
+
+	Les questions de vérité peuvent être utilisées dans la connexion bridi. Cette forme de phrase est parfaitement légitime, et peut être interprété en utilisant la convention selon laquelle une question de vérité est vraie si la réponse est "oui" et fausse si la réponse est non. De manière analogue, une phrase impérative (impliquant le pro-sumti ko spécial, ce qui signifie "Vous", mais marque la phrase en tant que commande) est vrai si la commande est respectée et false sinon. UNE
+La demande d'Abraham Lincoln peut être traduite ainsi:
+
+Exemple 14.108
+Ganai ti ckafi gi ko bevri loi tcati mi
+Si c'est le café, alors [vous!] Apportez-moi une masse de thé,
+.ije ganai ti tcati gi ko bevri loi ckafi mi
+Et si c'est-thé, alors [vous!] Apportez-moi une masse de café.
+Si c'est du café, apportez-moi du thé; Mais si c'est du thé, apportez-moi du café.
+
+	En termes logiques, cependant, "mais" est le même que "et"; La différence est que la phrase après un "mais" est se sentait en tension ou en opposition à la phrase qui l'attendait. Lojban représente cette distinction en ajoutant lLe cmavo ku'i discursif (de l'IU selma'o), expliqué à la section 13.12 (p. 304), à la logique .ije.)
+14.14 Connecteurs non logiques
+
+Dans la section 14.1 (page 317), on a fait remarquer que tout usage de l'anglais "et", "si ... alors"
+Et ainsi de suite représente un connecteur logique de Lojban. En particulier, considérez le "et" de:
+
+Exemple 14.109
+John et Alice ont porté le piano.
+
+	Compte tenu de la nature des pianos, cela signifie probablement que John a porté une extrémité et Alice l'autre. Donc, il n'est pas vrai que:
+
+Exemple 14.110
+John porta le piano, et Alice porta le piano.
+
+ce qui signifie que chacun d'entre eux a porté le piano par lui-même. Lojban s'occupe de ceci phénomène linguistique particulier en tant que «masse». John et Alice sont réunis dans une messe, John-Alice, et c'est cette masse qui portait le piano, pas l'un ni l'autre séparément. Le cmavo joi (de
+Selma'o JOI) est utilisé pour joindre deux ou plusieurs composants en une masse:
+
+Exemple 14.111
+La djan. Joi la .alis. Cu bevri le pipno
+Ce nom s'appelait John, qui s'appelait Alice, portait le piano.
+
+	L'exemple 14.111 (p. 338) couvre le cas mentionné, où John et Alice divisent le travail; il
+Cela pourrait également signifier que John a fait tous les coups et Alice a fait la supervision. Cette possibilité se pose parce que les propriétés d'une masse sont les propriétés de ses composants, ce qui peut conduire à une apparition contradictions: si John est petit et Alice est grande, John-and-Alice est à la fois petit et grand. Masses sont également discutés à la section 6.3 (page 119).
+	Grammatiquement, joi peut apparaître entre deux sumti (comme un ek) ou entre deux composants tanru (comme un jek). Cette flexibilité doit être payée sous forme de terminateurs occasionnels qui ne peuvent être éliminés:
+
+Exemple 14.112
+Le nanmu ku joi le ninmu [ku] cu klama le zarci
+L'homme se massait, la femme allait au marché.
+
+	Le cmavo ku est le terminateur élogieux pour le, qui peut presque toujours être élu, mais pas dans ce cas. Si le premier ku était élu ici, les règles d'analyse de Lojban verraient le nanmu joi et supposent que un autre composant de tanru doit suivre; Puisque le deuxième le ne peut pas faire partie d'un tanru, une erreur d'analyse résultats. Aucun tel problème ne peut se produire avec les connecteurs logiques, car un ek signale un résumé suivant et un jek un composant de tanru suivant sans ambiguïté.
+
+	Un cmavo simple ou composé impliquant des membres de selma'o JOI s'appelle joiks, par analogie avec le noms pour les connectifs logiques. Il n'est pas grammatical d'utiliser joiks pour connecter bridi-tails.
+
+	En tanru, joi a la connotation "mélangée avec", comme dans l'exemple suivant:
+
+Exemple 14.113
+Ti blanu joi xunre bolci
+C'est une balle bleue (bleu mixte).
+C'est une balle bleue et rouge.
+
+	Ici, la balle n'est ni entièrement bleue ni entièrement rouge, mais en partie bleue et partiellement rouge. Son bleu / rougeur est une propriété de masse. (Juste à quel point il faut que quelque chose soit bleu comme "complètement bleu" soit une question non réglée, bien que. Un blanu zdani peut l'être même si pas chaque partie est bleu.)
+	Il existe plusieurs autres cmavo dans selma'o JOI qui peuvent être utilisés dans la même grammaire constructions. Tous ne sont pas tous bien définis dans tous les contextes. Tous ont des définitions claires en tant que sumti connectifs; Ces définitions sont indiquées dans le tableau suivant:
+
+A joi B la masse avec les composants A et B
+A ce B le jeu avec les éléments A et B
+A ce'o B la séquence avec les éléments A et B afin
+A secé B la séquence avec les éléments B et A dans l'ordre
+A jo'u B A et B considérés conjointement
+A fa'u B A et B respectivement
+A sefa'u B B et A respectivement
+A jo'e B l'union des ensembles A et B
+A ku'a B l'intersection des ensembles A et B
+A pi'u B le produit croisé des ensembles A et B
+A sepi'u B le produit croisé des ensembles B et A
+
+Le cmavo se est grammatical avant tout cmavo JOI, mais seulement utile avec ceux qui sont inhérents commande. Voici quelques exemples de joiks:
+
+Exemple 14.114
+Mi cuxna la .alis. La frank.
+Je choisis cela, nommé Alice de Frank Frank
+Ce laalis. Ce la djeimyz.
+Et-member that-named Alice and-member that-named James.
+Je choisis Alice parmi Frank, Alice et James.
+
+	Le lieu x3 de cuxna est un jeu d'où le choix est en cours. Un ensemble est un objet abstrait qui est déterminé en spécifiant ses membres. Contrairement à ceux d'une masse, les propriétés d'un ensemble ne sont pas liées aux propriétés de ses membres: l'ensemble de tous les rats est grand (puisque de nombreux rats existent), mais les rats eux-mêmes sont petit. Ce chapitre ne tente pas d'expliquer en détail la théorie des ensembles (l'étude mathématique des ensembles) Expliquer la logique propositionnelle est suffisant pour un chapitre!
+
+	Dans l'exemple 14.114 (p. 339), nous spécifions cela défini en énumérant les membres avec lesquels ils les rejoignent.
+
+Exemple 14.115
+Ti mi-do'o do ce'o la djan.
+Ceci est-une-liste-de moi-et-séquence vous et-séquence qui-nommé John.
+Voici une liste de vous, moi et John.
+
+	Le x2 de la liste est une séquence des choses mentionnées dans la liste. (Il vaut la peine de pointer Out that lo list signifie un objet physique tel qu'une liste d'épicerie: une liste purement abstraite est lo porsi, a Séquence.) Ici, les trois sumti connectés par ce'o sont dans un ordre défini, non seulement regroupés dans un  ensemble ou une masse.
+	Donc joi, ce et ce'o sont parallèles, en ce sens que le sumti connecté est considéré comme un individu, et le résultat est autre chose: une masse, un ensemble ou une séquence respectivement. Le cmavo jo'u sert de quatrième élément dans ce schéma: le sumti connecté est individuel, et le résultat est encore individuel - mais inséparablement alors. La façon normale de Lojban de dire que James et George sont des frères est:
+
+Exemple 14.116
+La djeimyz. Bruna la djordj.
+Ce James s'appelle James, le frère, nommé George.
+
+ajoutant éventuellement un élément discursif "et vice versa". Cependant, "James et George sont
+Frères "ne peut pas être correctement traduit comme suit:
+
+Exemple 14.117
+La djeimyz. .e la djordj. Bruna
+C'est ce qu'on appelle James et ce nom, George est un frère.
+
+puisque cela se développe à deux bridi et signifie que James est un frère et George est, mais pas nécessairement les uns des autres. Si le e est changé en jo'u, cependant, la signification de l'exemple 14.116 (p.340) est préservée:
+
+Exemple 14.118
+La djeimyz. Jo'u
+C'est-à-dire James en commun - avec ce-nommé
+La djordj. Cu remei bruna
+George est un demi-type de frères.
+
+	Le tanru remei bruna n'est pas strictement nécessaire dans cette phrase, mais il est utilisé pour préciser que nous sommes ne disant pas que James et George sont les deux frères d'une tierce personne non précisée. Alternativement, nous pourrions transformer le tanoul autour: le x1 place de remei est une masse avec deux composants, ce qui conduit à:
+
+Exemple 14.119
+La djeimyz. Joi
+Le nom de James a été massé - avec
+La djordj. Cu bruna remei
+C'est-à-dire que George est un type-de-couple.
+
+où joi est utilisé pour créer la masse nécessaire.
+
+	De même, fa'u peut être utilisé pour rassembler deux personnes là où l'ordre importe. En règle générale, être un autre fa'u ailleurs dans le même bridi:
+
+Exemple 14.120
+La djeimyz. Fa'u la djordj.
+C'est ce que James a appelé conjointement dans l'ordre - avec George-George
+Prami la meris. Fa'u la martas.
+Aime cela, nommé Mary conjointement dans l'ordre, avec ce nom-nommé Martha.
+James et George aiment Mary et Martha, respectivement.
+
+	Voici l'information portée par l'adverbe anglais "respectivement", à savoir que James aime Marie et George aime Martha, est divisé entre les deux occurrences de fa'u. Si les deux utilisations de fa'u étaient à être changé en e, on obtiendrait:
+
+Exemple 14.121
+La djeimyz. .e la djordj. Prami
+C'est-à-dire James et ce-que l'amour de George
+La meris. .e la martas.
+Qui s'appelait Mary et celle-là, nommée Martha.
+
+qui peut être transformé en quatre bridi:
+
+Exemple 14.122
+La djeimyz. Prami la meris. .ije la djordj. Prami
+C'est ce qu'on appelle James, qui aime cela, nommé Mary, et ce que George aime
+La meris. .ije la djeimyz. Prami la martas.
+C'est-à-dire Mary, et cela, nommé James, aime cela, nommé Martha,
+.ije la djordj. Prami la martas.
+Et cela - nommé George aime cela - nommé Martha.
+
+ce qui représente un état de choses tout à fait différent de l'exemple 14.120 (p. 340). Le sens de
+L'exemple 14.120 (p. 340) peut également être transmis par un terme de termes:
+
+Exemple 14.123
+La djeimyz. Ce'e la meris. pipi
+Le nom de James [plus], baptisé Mary [joint]
+.e la djordj. Ce'e la martas. Prami
+Et cela, appelé George [plus], nommé Martha aime.
+
+Au détriment de la réorganisation de la liste des noms afin de rendre les paires explicites. Cette option n'est pas disponible lorsque l'une des listes n'est décrite que d'être énumérée:
+
+Exemple 14.124
+La djeimyz. Fa'u la djordj. Prami re mensi
+C'est ce qu'on appelle James et, respectivement, nommé George aime deux sœurs.
+
+ce qui traduit que James aime une soeur et George l'autre, bien que nous ne puissions pas dire lequel
+Des soeurs est ce qui.
+
+14.15 Plus sur les connecteurs non logiques
+
+Les trois dernières JOI cmavo, jo'e, ku'a et pi'u, ne sont probablement utiles que lorsqu'on parle explicitement de ensembles. Ils représentent trois opérateurs d'ensemble standard appelés habituellement "union", "intersection" et "cross" produit "(également connu sous le nom de" produit cartésien "). L'union de deux ensembles est un ensemble contenant tous les membres qui sont dans les deux cas; L'intersection de deux ensembles est un ensemble contenant tous les membres qui sont dans les deux ensembles. Le produit croisé de deux ensembles est l'ensemble de toutes les paires ordonnées possibles, où chaque paire commandée contient un élément unique du premier ensemble suivi d'un élément unique de la seconde. Ceci peut semblent très abstraits; Nous espérons que les exemples suivants aideront:
+
+Exemple 14.125
+Lo'i ricfu ku jo'e lo'i dotco cu barda
+L'ensemble des riches-choses union the-set-of-german-things is-large.
+
+Exemple 14.126
+Lo'i ricfu ku ku'a lo'i dotco cu cmalu
+L'ensemble des riches-choses intersection le-ensemble-allemand-les choses est-petit.
+
+	Il existe un parallélisme entre la logique et la théorie des ensembles qui fait l'exemple 14.125 (p. 341) et Exemple 14.126 (p. 341) équivalent respectivement à:
+
+Exemple 14.127
+Lo'i ricfu ja dotco cu barda
+The-set-of (rich-things ou German-things) est-large.
+
+et
+
+Exemple 14.128
+Lo'i ricfu je dotco cu cmalu
+The-set-of (rich-things et German-things) est-petit.
+
+L'exemple suivant utilise se remei, qui est un ensemble (pas une masse) de deux éléments:
+
+Exemple 14.129
+La djeimyz. Ce [bo] la djordj. Pi'u
+C'est ce qu'on appelle James et-set that-named George Cross-product
+La meris. Cebo la martas. Cu primi se remei
+Qui s'appelait Mary et-ce que l'on appelle Martha sont des types de paires d'amants.
+
+signifie que chacune des paires James / Mary, George / Mary, James / Martha et George / Martha aiment chacune autre. Par conséquent, il est semblable à l'exemple 14.121 (p. 340); Cependant, cet exemple ne parle que des hommes qui aiment les femmes, et non l'inverse.
+
+	Joiks peut être combiné avec bo ou avec ke de la même manière que eks et jeks; Cela permet de regrouper des connexions non logiques entre les unités sumti et tanru, en parallèle complet avec logique les liaisons:
+
+Exemple 14.130
+Mi joibo do ce la djan. Joibo la djein.
+(Je mêlais avec vous) et (ce nom-nommé John massait-avec celui-là nommé Jane)
+Cu gunma se remei
+Sont-a-masse type-of-two-set
+
+affirme qu'il existe un ensemble de deux éléments dont chacun est une masse.
+
+	La connexion non logique est autorisée à l'assemblage d'un terminal; Ceci est utile pour associer plus de un sumti ou un sumti marqué avec chaque côté de la connexion non logique. La structure de place de casnu est: casnu la masse x1 discute / parle de x2
+	De sorte que le lieu x1 doit être occupé par une masse (pour des raisons non expliquées ici); Cependant, différents les composantes de la masse peuvent discuter dans différentes langues. Associer chaque participant à son ou sa langue, on peut dire:
+
+Exemple 14.131
+Mi ce'e bau la lojban. Pe'e joi
+(I [plus] in-language, nommé Lojban [joint] massed-with
+Do ce'e bau la gliban. Nu'u casnu
+Vous [plus] dans-language that-named English) discuter.
+
+	Comme tous les connecteurs non logiques, l'utilisation illustrée dans l'exemple 14.131 (p. 342) ne peut pas être mécanique converti en un connecteur non logique placé à un autre endroit dans le bridi. La prévision L'équivalent de l'exemple 14.131 (p. 342) est:
+
+Exemple 14.132
+Nu'i joigi mi bau la lojban gi do bau la gliban. Nu'u casnu
+
+	Les termes temporels non logiques sont également utiles lorsque les choses à connecter non logiquement sont sumti précédé de balises tenues ou modales (BAI)
+
+Exemple 14.133
+La djan. Fa'u la frank. Cusku
+C'est-à-dire nommé John respectivement - avec Frank-Express
+Nu'i bau la lojban.
+[Start-termset] in-language qui s'appelle Lojban
+Nu'u fa'u bai
+[Joint] respectivement - avec une sous-contrainte
+Tu'a la djordj. [Nu'u]
+Quelque chose à propos de cela, nommé George.
+John et Frank parlent à Lojban et sous la contrainte de George respectivement
+
+	Exemple 14.133 (p. 342) associe parler à Lojban avec John et parler sous George's contrainte avec Frank. Nous ne savons pas quelle langue Frank utilise, ou si John parle sous
+La contrainte de quelqu'un.
+	Joiks peut être préfixé avec i pour produire ijoiks, qui servent à relier des connexions logiquement. Le ijoik .ice'o indique que l'événement du second bridi suit celui du premier bridi d'une manière ou d'une autre qu'une relation temporelle (qui est traitée avec un temps):
+
+Exemple 14.134
+Mi ba gasnu la'e di'e .i
+Je [futur] fais le-référent-of-the-following:
+Tu'e kanji lo ni cteki .ice'o lumci le karce
+(Calculez la quantité de taxes. Et puis lavez la voiture.
+.ice'o dzukansa le gerku tu'u
+Et puis ensuite, accompagnent le chien. )
+Liste des choses à faire: taxe sur les figures. Laver la voiture. Chien de promenade.
+
+	L'exemple 14.134 (page 343) représente une liste de choses à faire dans l'ordre de priorité. L'ordre est important, D'où la nécessité d'une séquence de connexion, mais ne représente pas nécessairement un ordre temporel (le chien peut finissent par être parcourus d'abord). Notez l'utilisation de tu'e et tu'u comme parenthèses générales autour de la liste entière. Ce est lié à, mais distinct de leur utilisation dans la section 14.8 (page 326), car il n'y a pas de connexion logique
+Entre la phrase d'introduction mi ba gasnu la'edi'e et le reste. Les parenthèses montrent effectivement comment une grande énonciation, le mot di'e, qui signifie "l'énoncé suivant", se réfère à.
+	De même, .ijoi est utilisé pour relier des phrases qui représentent les composants d'un événement conjoint tel qu'un cause commune: l'équivalent de Lojban de "Fran a frappé sa tête et est tombé hors du bateau, de sorte qu'elle s'est noyée" rejoindrait les événements "Fran a frappé sa tête" et "Fran est tombé du bateau" avec .ijoi.
+	Le nai suivant, si présent, ne nie pas l'une ou l'autre des choses à connecter, mais plutôt
+Spécifie qu'une autre connexion (logique ou non logique) est applicable: c'est une négation scalaire:
+
+Exemple 14.135
+Mi jo'u nai do cu remei
+Je suis en commun - avec [not!] Vous êtes-a-twosome
+
+	Le résultat de mi jo'u est de deux individus, pas une masse, donc jo'u ne s'applique pas; Joi serait le bon connecteur.
+	Il n'y a pas de question de joik cmavo en tant que telle; Cependant, joiks et ijoiks peuvent être prononcés isolément dans réponse à une question logique logique, comme dans l'échange suivant:
+
+Exemple 14.136
+Do djica tu'a loi ckafi
+Vous désirez quelque chose - au sujet d'une masse de café
+Ji loi tcati
+[What-connective?] A-mass-of tea?
+Voulez-vous du café ou du thé?
+
+Exemple 14.137
+Joi
+Mixed-mass-and.
+Les deux en tant que masse (c'est-à-dire mélangés).
+
+Pouah. (Ou dans Lojban: .a'unaisairo'o.)
+
+14.16 Connecteurs d'intervalle et connexion non logique de forethought
+
+En plus des connectifs non logiques de selma'o JOI expliqués dans la section 14.14 (p. 338) et
+Section 14.15 (p. 341), il existe trois autres connectifs qui peuvent apparaître dans les joiks: bi'i, bi'o et mi'i, tous de selma'o BIhI. Les deux premiers cmavo sont utilisés pour spécifier des intervalles: objets abstraits définis par deux points d'extrémité. Le cmavo bi'i est correct si les points finaux sont indépendants de l'ordre, tandis que bi'o ou sebi'o sont utilisé lors de la transaction.
+
+	Un exemple de bi'i in sumti connection:
+
+Exemple 14.138
+Mi ca sanli
+Je [présente] stand-on-surface
+La drezdn. Bi'i la frankfurt.
+Celui-ci appelé Dresde [intervalle] qui s'appelle Francfort.
+Je suis entre Dresde et Francfort.
+
+	Dans l'exemple 14.138 (p. 344), il est tout de même si je suis entre Dresde et Francfort ou entre Francfort et Dresde, donc bi'i est l'intervalle d'intervalle approprié. The sumti la drezdn.
+Bi'i la frankfurt. Tombe dans la place x2 de sanli, qui est la surface sur laquelle je me lève; l'intervalle spécifie que surface par ses limites. (Évidemment, je ne suis pas debout sur l'ensemble de l'intervalle; le x2 de Sanli spécifie une surface qui est généralement plus grande que la taille des pieds du stander.)
+
+Exemple 14.139
+Mi cadzu ca la pacac.
+Je marche simultanément - avec la première heure
+Bi'o la recac.
+[Intervalle ordonné] Deuxième heure.
+Je me promène d'une heure à deux heures.
+
+	Dans l'exemple 14.139 (p. 344), d'autre part, il est essentiel que le pacac. Vient avant la recac .; sinon, nous avons un intervalle de 11 heures (ou 23 heures) plutôt qu'un intervalle d'une heure. Dans cette utilisation d'un intervalle, l'intervalle entier est probablement prévu, ou au moins la plupart.
+	L'exemple 14.139 (p. 344) équivaut à:
+
+Exemple 14.140
+Mi cadzu ca la recac.
+Je marche simultanément - avec la deuxième heure
+Se bi'o la pacac.
+[Reverse] [commandé] Première heure.
+
+	L'anglais ne peut pas facilement exprimer sebi'o, mais son sens peut être compris en inversant les deux sumti.
+	Le troisième cmavo de selma'o BIhI, à savoir mi'i, exprime un intervalle vu d'un point de vue différent: pas une paire de points d'extrémité, mais un point central et une distance. Par exemple:
+
+Exemple 14.141
+Le jbama pu daspo la .uacintyn.
+La bombe [passé] détruit Washington
+Mi'i lo minli be li muno
+[Centre] ce qui-est mesuré-dans-miles par 50.
+La bombe a détruit Washington et à cinquante milles.
+
+	Nous avons ici un intervalle dont le centre est Washington et dont la distance, ou le rayon, est de cinquante milles.
+	Dans l'exemple 14.138 (p. 344), est-il possible que je me trouve à Dresde (ou Francfort) lui-même? Oui. Les connectifs de selma'o BIhI sont ambigus quant à savoir si les points finaux eux-mêmes sont inclus dans ou exclus de l'intervalle. Deux cmavo ga'o auxiliaires et ke'i (de cmavo GAhO) sont utilisés pour indiquer l'état des points d'extrémité: ga'o signifie que le point final est inclus, ke'i qu'il soit exclu :
+
+Exemple 14.142
+Mi ca sanli la drezdn. Ga'o
+Je [présent] supporte ce nom-Dresden [inclus]
+Bi'i ga'o la frankfurt.
+[Intervalle] [inclusivement] qui s'appelle Francfort.
+Je suis entre Dresde et Francfort, y compris les deux.
+Exemple 14.143
+Mi ca sanli la drezdn. Ga'o
+Je [présent] supporte ce nom-Dresden [inclus]
+Bi'i ke'i la frankfurt.
+[Intervalle] [exclusif] qui s'appelle Francfort.
+Je suis entre Dresde (inclus) et Francfort (exclusive).
+Exemple 14.144
+Mi ca sanli la drezdn. Ke'i
+Je [présent] stand that-named Dresden [exclusive]
+Bi'i ga'o la frankfurt.
+[Intervalle] [inclusivement] qui s'appelle Francfort.
+Je suis entre Dresde (exclusive) et Francfort (inclus).
+Exemple 14.145
+Mi ca sanli la drezdn. Ke'i
+Je [présent] stand that-named Dresden [exclusive]
+Bi'i ke'i la frankfurt.
+[Intervalle] [exclusif] qui s'appelle Francfort.
+Je suis entre Dresde et Francfort, à l'exclusion des deux.
+
+	Comme ces exemples devraient préciser, le cmavo GAhO qui s'applique à un point final donné est celui qui est physiquement adjacent à celui-ci: le point final de gauche est mentionné par le premier GAhO, et le point d'extrémité droit par le deuxième GAhO. Il est grammatical d'avoir un seul GAhO.
+	(Etymologiquement, ga'o est dérivé de ganlo, qui signifie "fermé", et ke'i de kalri, ce qui signifie "ouvrir". En mathématiques, les intervalles inclusifs sont appelés intervalles fermés et intervalles exclusifs comme ouverts.)
+	BIJI joiks sont grammaticaux partout où d'autres joiks sont, y compris dans une connexion tanru et (comme ijoiks) entre les phrases. Aucun sens n'a été trouvé pour ces utilisations.
+	Les intervalles négatifs, marqués d'un -nai suivant le cmavo BIhI, indiquent un intervalle qui inclut tout sauf ce qui se trouve entre les points finaux (par rapport à une échelle comprise):
+
+Exemple 14.146
+Do dicra .e'a mi ca la daucac.
+Vous me dérangez (à cause de cela), nommé 10
+Bi'onai la gaicac.
+Non-de-... - à ce nom-12
+Vous pouvez me contacter sauf de 10 à 12.
+
+La syntaxe complète de joiks est:
+
+[Se] JOI [nai]
+[Se] BIhI [nai]
+GAhO [se] BIhI [nai] GAhO
+
+	Notez que les traductions anglaises colloquiales de bi'i et bi'o ont une forme d'attente: "entre ... et" pour bi'i, et "de ... à" pour bi'o. Dans Lojban aussi, les connectifs non logiques peuvent être exprimés dans la prévision. Plutôt que d'utiliser un selma'o séparé, les connectifs logiques de la foret sont construits à partir de après coup, en suffixant gi. Un tel cmavo composé n'est pas naturellement appelé "joigik"; la syntaxe de joigiks est l'une des suivantes:
+
+[Se] JOI [nai] GI
+[Se] BIhI [nai] GI
+GAhO [se] BIhI [nai] GAhO GI
+
+	Joigiks peut être utilisé pour connecter de manière non logique bridi, sumti et bridi-tails; Et aussi dans les termes.
+	L'exemple 14.111 (p. 338) en prévision devient:
+
+Exemple 14.147
+Joigi la djan. Gi la .alis. Bevri le pipno
+[Ensemble], John s'appelait Alice et s'appelait Alice.
+
+	Le premier gi fait partie du joigik; Le second gi est le gik régulier qui sépare les deux choses
+connecté dans toutes les formes de la foret.
+	L'exemple 14.143 (p. 345) peut être exprimé dans la prévision comme suit:
+
+Exemple 14.148
+Mi ca sanli ke'i bi'i
+Je [présente] stand [exclusive] entre
+Ga'o gi la drezdn. Gi la frankfurt.
+[Inclus] et celui-ci-nommé Dresde et celui-ci-nommé Francfort.
+Je suis entre Dresde (exclusive) et Francfort (inclus).
+
+	Dans la prévision, malheureusement, les GAhOs se séparent physiquement des points d'extrémité, mais les la même règle s'applique: le premier GAhO se réfère au premier point final.
+
+14.17 Connectifs logiques et non logiques au sein de Mekso
+
+	Lojban a une grammaire distincte intégrée dans la grammaire principale pour la représentation mathématique expressions (ou mekso dans Lojban) telles que "2 + 2". Les expressions mathématiques s'expliquent entièrement dans chapitre 18 (p. 413). Les composants de base de mekso sont des opérandes, comme "2", et des opérateurs, comme "+". Tous les deux
+de ceux-ci peuvent être logiquement ou non logiquement connectés.
+	Les opérandes sont connectés après coup avec eks et dans la prévision avec geks, tout comme Sumti. Les opérateurs, d'autre part, sont reliés par la suite avec des jupes et dans la prévision avec guheks, tout comme les composants Tanru. (Cependant, les jean et joiks avec bo ne sont pas autorisés pour les opérateurs.) Ceci Le parallélisme n'est pas un hasard.
+	En outre, eks avec bo et avec ke ... ke'e sont autorisés à regrouper des opérandes logiquement connectés, et ke ... ke'e est autorisé à regrouper des opérateurs logiquement connectés, bien qu'il n'y ait pas d'analogique de tanru parmi les opérateurs. Seuls quelques exemples de chaque type de connexion mekso seront donnés. Malgré le grand nombre de règles requises pour prendre en charge cette fonctionnalité, elle revêt une importance relativement mineure dans le mekso ou le
+Système logique-conjonctif des choses. Ces exemples sont tirés de la section 18.17 (p. 435) et contiennent beaucoup de fonctionnalités mekso non expliquées dans ce chapitre.
+	L'exemple 14.149 (p. 346) présente une connexion logique après opération entre les opérandes:
+
+Exemple 14.149
+Vei ci.a vo [ve'o] prenu cu klama le zarci
+(Trois ou quatre personnes) vont au marché.
+
+	L'exemple 14.150 (p. 347) a un sens équivalent, mais utilise une connexion forethought:
+
+Exemple 14.150
+Vei ga ci gi vo [ve'o] prenu cu klama le zarci
+(Soit 3 ou 4) les gens vont au marché.
+
+	Notez que le mekso dans l'exemple 14.149 (p. 346) et l'exemple 14.150 (p. 347) sont utilisés comme quantificateurs. Lojban exige que tout mekso autre qu'un simple nombre soit inclus dans vei et ve'o parenthèses lorsqu'elles sont utilisées comme quantificateur. La marque de parenthèse droite, c'est un terminateur élogieux.
+	Des exemples simples de connexion logique entre opérateurs sont difficiles à trouver. Un exemple inventé est:
+
+Exemple 14.151
+Li re su'i je pi'i re du li vo
+Le numéro 2 plus et les temps 2 sont égaux au-numéro 4.
+2 + 2 = 4 et 2 x 2 = 4.
+
+	La forme d'inconvénient de l'exemple 14.151 (p. 347) est:
+
+Exemple 14.152
+Li re ge su'i gi pi'i re du li vo
+Le nombre deux deux plus et les deux fois deux sont égaux au nombre quatre.
+Les deux 2 + 2 = 4 et 2 x 2 = 4.
+
+	La connexion non logique avec joiks ou joigiks est également autorisée entre les opérandes et entre les opérateurs. Une utilisation pour cette construction est de connecter des opérandes avec bi'i pour créer des intervalles mathématiques:
+
+Exemple 14.153
+Li no ga'o bi'i ke'i pa
+Le-numéro zéro (inclus) de-à (exclusif) un
+[0,1)
+Les nombres de zéro à un, y compris le zéro mais ne comprennent pas un
+
+	Vous pouvez également combiner deux opérandes avec ce'o, la séquence de connectivité de selma'o JOI, pour créer indice composé:
+
+Exemple 14.154
+Xy. Boi xi vei par. Ce'o dy. [Ve'o]
+"X" sub ("b" séquence "d")
+Xb, d
+
+	Notez que le boi dans l'exemple 14.154 (p. 347) n'est pas invalide, car l'indice subséquent xi a besoin de quelque chose à joindre à.
+
+14.18 Temps, modales et connexion logique
+
+	Les systèmes tendus et modaux de Lojban interagissent avec le système logique logique. Aucun chapitre ne peut expliquez tout cela simultanément, de sorte que chaque chapitre doit présenter sa propre vision du domaine d'interaction en mettant l'accent sur ses propres concepts et sa terminologie. Dans les exemples de ce chapitre, les nombreux temps ee divers selma'o ainsi que les modes de selma'o BAI sont représentés par le temps simple cmavo pu, ca, et ba (de selma'o PU) représentant le passé, le présent et le futur respectivement. Précédant un selbri, ces cmavo indiquent le moment où le bridi était, est ou sera vrai (analogue au verbe anglais temps); précédant un sumti, ils indiquent que l'événement du bridi principal est antérieur, simultané ou après l'événement donné par le sumti (qui est généralement une abstraction du nuque, voir la section 11.2 (page 248)).
+	Les deux types d'interaction entre les temps et les connecteurs logiques sont des temps logiquement connectés et des connexions logiques tendues. Les premiers sont assez simples. Jeks peut être utilisé entre le cmavo tendu spécifiez deux bridi connectés qui ne diffèrent qu'en temps réel:
+
+Exemple 14.155
+La .artr. Pu nolraitru
+C'est ce qu'on appelle Arthur [passé] is-a-noblest-gouverneur.
+.ije la .artr. Ba nolraitru
+Et ce-qui s'appelle Arthur [future] est-a-noblest-gouverneur.
+Arthur était un roi, et Arthur serait roi.
+
+peut être réduit à:
+
+Exemple 14.156
+La .artr. Pu je ba nolraitru
+C'est ce qu'on appelle Arthur [passé] et [futur] est-a-noblest-gouverneur.
+Arthur était et sera roi.
+
+	L'exemple 14.155 (p. 348) et l'exemple 14.156 (p. 348) ont un sens équivalent; Ni rien dit
+Si Arthur est roi maintenant.
+	La connexion non logique avec joiks est également possible entre les temps:
+
+Exemple 14.157
+Mi pu bi'o ba vasxu
+Je [passé] de ... - à [futur] respirer.
+Je respire d'un temps passé jusqu'à un moment futur.
+
+Le système en temps réel permet d'exprimer des intervalles de temps plus intéressants, tels que "d'un moyen il y a longtemps jusqu'à maintenant ".
+	Aucune prévision des connexions entre les temps n'est permise par la grammaire, ni aucun moyen pour remplacer la règle de groupe gauche par défaut; Ces limitations sont imposées pour garder la grammaire tendue plus simple. Tout ce qui peut être dit avec des temps ou des modaux peut être dit avec un bridi subordonné indiquant l'heure, lieu ou mode explicitement, il est donc raisonnable d'essayer d'enlever au moins certaines complications.
+	Les connexions logiques réduites sont à la fois plus complexes et plus importantes que les connexions logiques entre les temps. Considérons la phrase anglaise:
+
+Exemple 14.158
+Je suis allé sur le marché et j'ai acheté de la nourriture.
+
+	La traduction textuelle de l'exemple 14.158 (p. 348), à savoir:
+
+Exemple 14.159
+Mi pu klama le zarci .ije mi pu tervecnu lo cidja
+Je [passé] aller au marché. Et j'ai acheté des objets de nourriture.
+
+ne parvient pas à représenter pleinement une caractéristique de l'anglais, à savoir que l'achat est venu après la sortie. (Ça aussi ne représente pas que l'achat a été une conséquence de l'évolution, ce qui peut être exprimé par un mode qui est discuté au chapitre 9 (page 179). Cependant, les informations tendues - que l'événement de mon arrivée à le marché a précédé l'événement de mon achat de nourriture - peut être ajouté au connecteur logique comme suit. Le .ije est remplacé par .ijebo, et le temps cmavo ba est inséré entre .ije et bo:
+
+Exemple 14.160
+Mi pu klama le zarci
+Je [passé] aller au marché.
+.ije babo mi pu tervecnu lo cidja
+Et [plus tard] j'ai acheté des objets de nourriture.
+
+	Ici, le pu cmavo dans les deux ponts de bridi exprime le temps des deux actions par rapport au locuteur: autrefois. Le ba relie les deux éléments les uns aux autres: le deuxième élément est postérieur au premier élément. La grammaire ne permet pas d'omettre le bo; Si elle était omise, le ba et le second pu fonctionneraient Ensemble pour former un baptême de temps composé s'appliquant à la deuxième queue de pont seulement.
+
+	L'ajout d'informations tendues ou modales à un connecteur logique n'est autorisé que dans les éléments suivants situations:
+	Entre un ek (ou joik) et bo, comme dans:
+
+Exemple 14.161
+La .djan .e cabo la .alis. Klama le zarci
+C'est-à-dire John et [simultané], nommé Alice, sur le marché.
+John et Alice vont sur le marché simultanément.
+
+	Entre un ek (ou joik) et ke, comme dans:
+
+Exemple 14.162
+Mi dzukla le zarci .e pu
+Je marche vers le marché et [plus tôt]
+Ke le zdani .a le ckule [ke'e]
+(La maison ou l'école).
+Je me dirige vers le marché et, avant cela, à la maison ou à l'école.
+
+	Entre un gihek et bo, comme dans:
+
+Exemple 14.163
+Mi dunda le cukta gi'e babo
+Je donne le livre et [plus tard]
+Lebna lo rupnu vau do
+Prenez des unités monétaires de / à-vous.
+Je vous donne le livre, puis je prends des dollars (livres, yens) de votre part.
+
+	Entre un gihek et ke, comme dans:
+
+Exemple 14.164
+Mi dzukla le zarci gi'e ca
+Je marche sur le marché et [simultanément]
+Ke cusku zo'e la djan. [Ke'e]
+(Exprimer quelque chose à ce que l'on appelle John).
+Je me dirige vers le marché et en même temps parle à John.
+
+	Entre un ijek (ou ijoik) et bo, comme dans:
+
+Exemple 14.165
+Mi viska pa nanmu .ije babo mi viska pa ninmu
+Je vois un homme. Et plus tard, je vois une femme.
+Je vois un homme, puis je vois une femme.
+
+	Entre un ijek (ou ijoik) et tu'e, comme dans:
+
+Exemple 14.166
+Mi viska pa nanmu .ije batu'e mi viska pa ninmu [tu'u]
+Je vois un homme. Et plus tard, je vois une femme.
+Je vois un homme, puis je vois une femme.
+
+	Et enfin, entre un jek (ou joik) et bo, comme dans:
+
+Exemple 14.167
+Mi mikce jebabo ricfu
+Je suis médecin et [plus tard] riche
+Je suis un médecin et un futur riche.
+
+	Comme on peut le voir à partir de l'exemple 14.165 (p. 349) et de l'exemple 14.166 (p. 349), le choix entre et ke (ou tu'e) est arbitraire lorsqu'il n'y a que deux choses à connecter. S'il n'y avait pas de tension des informations à inclure, bien sûr, aucune ne serait nécessaire; Ce n'est que la règle que les informations tendues doit toujours être pris en sandwich entre le connecteur logique et un bo, ke ou tu'e suivant qui nécessite l'utilisation d'un de ces groupements cmavo dans l'exemple 14.161 (p. 349) et l'exemple 14.163 (p. 349) à travers l'Exemple 14.167 (p. 349).
+	Les connecteurs non logiques avec bo et ke peuvent inclure des informations tendues exactement de la même manière que connecteurs logiques. Les connecteurs de la méfiance, cependant (sauf comme indiqué ci-dessous) sont incapables de le faire, de même que les termes ou les connectifs tendus. Les opérandes mathématiques et les opérateurs peuvent également inclure des tensions l'information dans leurs connectifs logiques en raison de leur parallélisme étroit avec sumti et tanru composants respectivement:
+
+Exemple 14.168
+Vei ci.ebabo vo [ve'o] tadni cu zvati le kumfa
+(3 et - [avenir] 4) les élèves sont dans la salle.
+Trois et, plus tard, quatre étudiants étaient dans la salle.
+
+est un exemple simple. Il existe une règle grammaticale spéciale pour l'utilisation lorsqu'un temps s'applique aux deux selbri dans une branche bridi-tail de la prévoyance: toute la construction de la prévision peut être précédée par un temps. Par exemple:
+
+Exemple 14.169
+Mi pu ge klama le zarci gi tervecnu lo cidja
+Je [passé] tous les deux aller au marché et acheter de la nourriture
+Je suis allé au marché et j'ai acheté de la nourriture.
+
+	L'exemple 14.169 (p. 350) est similaire à l'exemple 14.159 (p.334). Il n'y a pas de relation de temps spécifiée entre l'aller et l'achat; Les deux sont simplement définis dans le passé.
+
+14.19 Connexion et connexion Abstractor dans des abstractions
+
+Dernier et (en fait) le moins: un connecteur logique est autorisé entre les marqueurs d'abstraction de
+Selma'o NU. Comme d'habitude, la connexion peut être étendue à une connexion bridi entre deux bridi qui ne diffèrent que par un marqueur d'abstraction. Jeks est le connecteur approprié. Exemple 14.170 (p. 350) et L'exemple 14.171 (p. 350) a un sens équivalent:
+
+Exemple 14.170
+Le ka la frank. Ciska cu xlali
+La qualité de l'écriture de Frank-Frank est-mal,
+.ije le ni la frank. Ciska cu xlali
+Et la quantité - celle de l'écriture de Frank - est mauvaise.
+Exemple 14.171
+Le ka je ni la frank. Ciska cu xlali
+La qualité et la quantité de ce nom, l'écriture de Frank, sont mauvaises.
+
+	Comme pour les temps et les modaux, il n'y a pas d'inconvénient et aucun moyen de remplacer la règle de regroupement gauche.
+	Les connexions logiques et l'abstraction sont également liées d'une autre manière. Depuis une abstraction contient un bridi, le bridi peut avoir une connexion logique à l'intérieur. Est-il légitime de diviser le bridi externe en deux, rejoint la connexion logique? Absolument pas. Par exemple:
+
+Exemple 14.172
+Mi jinvi le du'u loi jmive
+J'estime le fait: cette masse de choses vivantes
+Cu zvati gi'onai na zvati vau la .iupiter.
+(C'est-à-ou-l'autre n'est-pas) qui s'appelle Jupiter.
+Je crois qu'il y a soit ou n'est pas la vie sur Jupiter.
+
+est vrai, puisque la phrase intégrée est une tautologie, mais:
+
+Exemple 14.173
+Mi jinvi le du'u loi jmive cu zvati la .iupiter.
+Je considère le fait, que la masse des êtres vivants, c'est à Jupiter
+.ijonai mi jinvi le du'u loi jmive
+Ou-autrement, j'estime le fait - que une masse de choses vivantes
+Cu zvati la .iupiter.
+N'est-ce pas - à ce sujet - nommé Jupiter
+
+est faux, car je n'ai aucune preuve d'une manière ou d'une autre (jinvi nécessite une sorte de preuve, réelle ou à la différence de krici).
+
+14.20 Constructions et connecteurs appropriés
+
+Le tableau suivant spécifie, pour chaque type de construction qui peut être logiquement ou non logiquement connecté à Lojban, quel type de connexion est nécessaire à la fois pour la réflexion et (si possible) la prévision Modes. Un astérisque (*) indique que la connexion en tension est permise.
+
+	Un tiret indique que la connexion du type spécifié n'est pas possible.
+
+Construire une réflexion ultérieure
+logique
+prévoyance
+logique
+Après réflexion non logique
+Prévention non logique
+Bridi ijek * gek ijoik * joigik
+Sumti ek * gek joik * joigik
+Bridi-tails gihek * gek - joigik
+Terminologie ek * gek joik * joigik
+Tanru parts jek guhek joik * -
+Opérandes ek * gek joik * joigik
+Opérateurs jek guhek joik -
+Temps /
+Modèles
+Jek - joik -
+Abstracteurs jek - joik -
+
+14.21 Fonctions de vérité et connecteurs logiques correspondants
+
+Le tableau suivant spécifie, pour chaque fonction de vérité, le cmavo cmavo ou composé le plus souvent utilisé qui l'exprime pour chacun des six types de connectifs logiques. (D'autres composés cmavo sont souvent possible: par exemple, se.a signifie le même que a, et pourrait être utilisé à la place.)
+
+Vérité ek jek gihek gek-gik guhek-gik
+TTTF a ja gi'a ga-gi gu'a-gi
+TTFT .a nai ja nai gi'a nai ga-ginai gu'a-ginai
+TTFF u ju gi'u gu-gi gu'u-gi
+TFTT na.a na ja na gi'a ganai-gi gu'anai-gi
+TFTF se.u se ju se gi'u segu-gi segu'u-gi
+TFFT o jo gi'o go-gi gu'o-gi
+TFFF e je gi'e ge-gi gu'e-gi
+FTTT na.a nai na ja nai na gi'a nai ganai-ginai gu'anai-ginai
+FTTF .o nai jo nai gi'o nai go-ginai gu'o-ginai
+FTFT se.u nai se ju nai se gi'u nai segu-ginai segu'u-ginai
+FTFF .e nai je nai gi'e nai ge-ginai gu'e-ginai
+FFTT na.u na ju na gi'u gunai-gi gu'unai-gi
+FFTF na.e na je na gi'e genai-gi gu'enai-gi
+FFFT na.e nai na je nai na gi'e nai genai-ginai gu'enai-ginai
+
+Remarque: les ijeks sont exactement les mêmes que les jongs correspondants, à l'exception du i préfixé.
+
+14.22 Règles pour la création de connecteurs logiques et non logiques
+
+	L'ensemble des règles pour insérer na, se et nai dans n'importe quel connecteur est:
+	Connecteurs logiques après-pensées (eks, jeks, giheks, ijeks):
+
+	Nultez la première construction: Placez na avant le cmavo conjonctif (mais après le i d'un ijek).
+	Nouer la deuxième construction: placez nai après le cmavo conjonctif.
+	Constructions d'échange: Placez-vous avant le cmavo conjonctif (après na ou aucun).
+
+	Connecteurs logiques de forthought (geks, guheks):
+
+	Nez construisez d'abord: placez nai après le cmavo conjonctif.
+	Nouer la deuxième construction: placez Nai après le gi.
+	Constructions d'échange: Placez-vous avant le cmavo conjonctif.
+
+	Connecteurs non logiques (joiks, joigiks):
+
+	Nier la connexion: Placez nai après le cmavo conjonctif (mais avant le gi d'un joigik).
+	Constructions d'échange: Placez-vous avant le cmavo conjonctif.
+
+14.23 Emplacements d'autres tableaux
+
+Section 14.1 (p. 317): un tableau expliquant la signification de chaque fonction de vérité en anglais.
+Section 14.2 (p. 319): tableau contenant les fonctions de vérité aux quatre voyelles de base.
+Section 14.13 (p. 335): un tableau de la question conjoncturelle cmavo.
+Section 14.14 (p. 338): un tableau des significations de JOI cmavo lorsqu'il est utilisé pour connecter sumti.
